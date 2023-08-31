@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
+
+    <script defer src="./module/index.js" type="module"></script>
   </head>
   <body>
     <!-- header -->
@@ -25,11 +27,14 @@
             <div class="chat-wrap">
                 <div class="chat-view">
                     <p>챗 뷰 구역</p>
+                    <ul>
+
+                    </ul>
                 </div>
-                <div class="chat-form">
-                    <textarea name="question" id="question"></textarea>
-                    <button>button</button>
-                </div>
+                <form action="POST" class="chat-form">
+                    <textarea name="question" id="question" autofocus></textarea>
+                    <button type="submit">이미지</button>
+                </form>
             </div>
             
         </div>

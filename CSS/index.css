@@ -7,7 +7,8 @@
     /* background-color: rgb(60, 64, 67); */
     background-color: rgb(68, 70, 84);
     padding: 20px 0px 40px 0px;
-    border-right: 1px solid #ddd;
+    /* border-right: 1px solid #ddd; */
+    border: none;
     display: flex;
     flex-grow: 1;
     justify-content: center;
@@ -22,14 +23,29 @@
 
 .chat-wrap {
     color: white;
-    background-color: skyblue;
+    /* background-color: skyblue; */
     width: 50%;
+    min-width: 600px;
     max-width: 800px;
 }
 
 .chat-view {
-    height: 90%;
+    height: 85%;
     overflow-y: auto;
+    mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+    -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+    padding-bottom: 32px;
+}
+.chat-view::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-view::-webkit-scrollbar-thumb{
+    background: rgb(52, 53, 65); /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+.chat-view::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 10px;
 }
 
 .chat-input {
@@ -49,6 +65,7 @@
     border-radius: 16px;
     align-items: center;
     margin-top: 40px;
+    
 }
 
 .chat-form textarea {

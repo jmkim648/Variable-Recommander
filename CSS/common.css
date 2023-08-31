@@ -43,7 +43,7 @@ input[type="email"] {
     height: 80px;
     padding: 0 20px;
     box-sizing: border-box;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     display: flex;
     align-items: center;
     justify-content: space-between;
