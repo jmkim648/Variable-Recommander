@@ -1,11 +1,13 @@
 import * as jsonObject from '../data/data.js'
 
+//chatGPT API
 const $form = document.querySelector("form");
 const $input = document.querySelector(".chat-form textarea");
 const $chatList = document.querySelector(".chat-view ul");
 
-let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
+//chatGPT API-------------------------
+let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 let question;
 
 //data파일에서 내용 불러오기
@@ -16,9 +18,7 @@ jsonObject.python.forEach((item, idx) => {
         content: item.content
     });
 })
-// console.log(data);
-
-let questionData = [];
+let questionList = [];
 
 // input에 입력된 질문 받아오는 함수
 $input.addEventListener("input", (e) => {
@@ -32,29 +32,29 @@ const sendQuestion = (question) => {
             role: "user",
             content: question,
         });
-        questionData.push({
+        questionList.push({
             role: "user",
             content: question,
         });
     }
 };
 
-// 화면에 질문 그려주는 함수
+// display question
 const printQuestion = async () => {
     if (question) {
         let li = document.createElement("li");
         li.classList.add("question");
-        questionData.map((el) => {
+        questionList.map((el) => {
             li.innerText = el.content;
         });
         console.log(li);
         $chatList.appendChild(li);
-        questionData = [];
+        questionList = [];
         question = false;
     }
 };
 
-// 화면에 답변 그려주는 함수
+// display answer
 const printAnswer = (answer) => {
     let li = document.createElement("li");
     li.classList.add("answer");

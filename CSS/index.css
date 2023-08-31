@@ -40,7 +40,7 @@
     width: 8px;
 }
 .chat-view::-webkit-scrollbar-thumb{
-    background: rgb(52, 53, 65); /* 스크롤바의 색상 */
+    background: rgb(52, 53, 65);
     border-radius: 10px;
 }
 .chat-view::-webkit-scrollbar-track {
@@ -69,11 +69,13 @@
 }
 
 .chat-form textarea {
-    /* border: none; */
+    /* color: white; */
     border: none;
     resize: none;
     flex-grow: 1;
-    height: 60px;   
+    height: 60px;
+    overflow-y: hidden;
+    outline: none;
 }
 
 .chat-form button {
