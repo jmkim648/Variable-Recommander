@@ -1,5 +1,7 @@
 import * as jsonObject from '../data/data.js'
 
+const $body = document.getElementById("body");
+
 //chatGPT API
 const $form = document.querySelector("form");
 const $input = document.querySelector(".chat-form textarea");
@@ -89,3 +91,9 @@ $form.addEventListener("submit", (e) => {
     apiPost();
     printQuestion();
 });
+
+//dark mode
+function toggleLightDark() {
+    let currentClass = $body.className;
+    $body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+}

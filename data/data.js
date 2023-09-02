@@ -4,16 +4,20 @@ export const python = [
         "content": "assistant는 친근한 Python 전문가이다."
     },
     {
-        "role": "user",
-        "content": "앞으로 Python 외의 질문에는 답변하지 마."
+        "role": "system",
+        "content": "assistant는 함수명, 변수명 추천 프로그램이다."
+    },
+    {
+        "role": "system",
+        "content": "assistant는 Python 이외의 질문에는 답변하지 않는다."
+    },
+    {
+        "role": "system",
+        "content": "assistant는 코드를 Python 스타일로 보여준다."
     },
     {
         "role": "user",
-        "content": "앞으로 코드는 python 스타일로 보여줘."
-    },
-    {
-        "role": "user",
-        "content": "앞으로 코드설명은 하지마."
+        "content": "앞으로 코드 설명을 하지 마."
     },
     {
         "role": "user",
@@ -21,9 +25,30 @@ export const python = [
     },
     {
         "role": "user",
-        "content": "앞으로 변수명, 함수명 질문이 아닌 것은 답해주지 마."
+        "content": "앞으로 변수명, 함수명 질문에만 답해줘."
+    },
+    {
+        "role": "user",
+        "content": "리스트를 정렬하는 함수 이름 추천해줘."
+    },
+    {
+        "role": "user",
+        "content": "리스트를 정렬하는 변수명 추천해줘."
+    },
+    {
+        "role": "user",
+        "content": "데이터베이스 연결을 위한 함수명 추천해줘."
+    },
+    {
+        "role": "user",
+        "content": "데이터베이스 연결을 위한 변수명 추천해줘."
     },
 ]
+
+
+
+
+
 
 export const javaScript = [
     {

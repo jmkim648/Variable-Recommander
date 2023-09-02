@@ -1,3 +1,32 @@
+/* variable */
+:root {
+    --dark-color : #111;
+    --light-color : #eee;
+}
+/* dark mode */
+body.dark-mode {
+
+}
+
+
+
+/* css */
+.layout-header button { 
+    background-color: rgb(32, 33, 35);
+    scale: 1.5;
+    border: 0;
+    color: transparent;
+    /* text-shadow: 0 0 0 rgb(33, 37, 41); */
+    text-shadow: 0 0 0 rgb(236, 236, 236);
+    padding-right: 15px;
+}
+/* hover에서 나중에 js 클릭했을 때로 바꿀 것 */
+.layout-header button:hover {
+    transition: all ease 0.5s;
+    transform: rotate(90deg);
+    text-shadow: 0 0 0 rgb(33, 37, 41);
+}
+
 .main-container {
     display: flex;
     height: calc(100vh - 80px);
@@ -23,18 +52,55 @@
 
 .chat-wrap {
     color: white;
-    /* background-color: skyblue; */
     width: 50%;
-    min-width: 600px;
     max-width: 800px;
 }
 
-.chat-view {
+.select-chatview-wrap {
     height: 85%;
     overflow-y: auto;
     mask-image: linear-gradient(0deg, transparent 0%, black 10%);
     -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%);
     padding-bottom: 32px;
+}
+.select-language {
+    display: flex;
+    gap: 5px;
+    padding-top: 2px;
+}
+
+.select-language label {
+    padding: 2px 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+.select-language input[type=radio] {
+    display: none;
+}
+.select-language input[type=radio] + label {
+    color: #e0e0e0;
+    font-size: 20px;
+}
+.select-language input[type=radio]:checked + label {
+    color: #000;
+    border: 1px solid skyblue;
+}
+
+.select-purpose {
+
+}
+
+
+.select-purpose input {
+    outline: none;
+}
+.select-purpose input::placeholder {
+    color: white;
+}
+
+.chat-view {
+    background-color: white;
+    color: black;
 }
 .chat-view::-webkit-scrollbar {
     width: 8px;

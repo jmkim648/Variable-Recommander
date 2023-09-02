@@ -16,9 +16,8 @@
     <header class="layout-header">
         <h1><a href="./index.html">Variable Recommander</a></h1>
         <div>
-            <button class="menu-slide">아이콘1</button>
-            <button>아이콘2</button>
-            <button>아이콘3</button>
+            dark mode
+            <button type="button" name="light-dark" onclick="toggleLightDark()" title="다크모드">☀️🌙</button>
         </div>
     </header>
     <!-- /header -->
@@ -26,11 +25,39 @@
     <main class="main-container">
         <div class="chat-container">
             <div class="chat-wrap">
-                <div class="chat-view">
-                    <p>챗 뷰 구역</p>
-                    <ul>
-
-                    </ul>
+                <div class="select-chatview-wrap">
+                    <div class="select-wrap">
+                        <div class="select-language">
+                            <input type="radio" id="lang-python" name="language">
+                            <label for="lang-python">Python</label>
+                            <input type="radio" id="lang-java" name="language">
+                            <label for="lang-java">Java</label>
+                            <input type="radio" id="lang-C++" name="language">
+                            <label for="lang-C++">C++</label>
+                            <input type="radio" id="lang-JavaScript" name="language">
+                            <label for="lang-JavaScript">JavaScript</label>
+                        </div>
+                        <div class="select-purpose">
+                            목적 선택 구역
+                            <select name="purpose" id="function-purpose">
+                                <option value="1">데이터베이스 연결</option>
+                                <option value="2">데이터 저장, 검색</option>
+                                <option value="3">파일 읽기, 쓰기</option>
+                                <option value="4">이미지 처리</option>
+                                <option value="5">문자열 조작</option>
+                                <option value="6">수학 연산</option>
+                            </select>
+                            <div><input type="text" placeholder="기타" disabled></div>
+                        </div>
+                        <button class="select-button">
+                            버튼 구역
+                        </button>
+                    </div>
+                    <div class="chat-view">
+                        <p>챗 뷰 구역</p>
+                        <ul>
+                        </ul>
+                    </div>
                 </div>
                 <form action="POST" class="chat-form">
                     <textarea name="question" id="question" autofocus></textarea>
