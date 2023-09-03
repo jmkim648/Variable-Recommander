@@ -1,99 +1,41 @@
-import * as jsonObject from '../data/data.js'
+//for background setting
+const $body = document.querySelector("body");
+const $header = document.querySelector(".layout-header");
+const $historyContainer = document.querySelector(".history-container");
 
-const $body = document.getElementById("body");
+//toggle button
+const $darkModeButton = document.querySelector(".dark-mode-button");
+//☀️🌙
 
-//chatGPT API
-const $form = document.querySelector("form");
-const $input = document.querySelector(".chat-form textarea");
-const $chatList = document.querySelector(".chat-view ul");
-
-
-//chatGPT API-------------------------
-let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
-let question;
-
-//data파일에서 내용 불러오기
-let data = [];
-jsonObject.python.forEach((item, idx) => {
-    data.push({
-        role: item.role,
-        content: item.content
-    });
-})
-let questionList = [];
-
-// input에 입력된 질문 받아오는 함수
-$input.addEventListener("input", (e) => {
-    question = e.target.value;
-});
-
-// 사용자의 질문을 객체로 만들어서 push
-const sendQuestion = (question) => {
-    if (question) {
-        data.push({
-            role: "user",
-            content: question,
-        });
-        questionList.push({
-            role: "user",
-            content: question,
-        });
-    }
-};
-
-// display question
-const printQuestion = async () => {
-    if (question) {
-        let li = document.createElement("li");
-        li.classList.add("question");
-        questionList.map((el) => {
-            li.innerText = el.content;
-        });
-        console.log(li);
-        $chatList.appendChild(li);
-        questionList = [];
-        question = false;
-    }
-};
-
-// display answer
-const printAnswer = (answer) => {
-    let li = document.createElement("li");
-    li.classList.add("answer");
-    li.innerText = answer;
-    $chatList.appendChild(li);
-};
-
-// api 요청보내는 함수
-const apiPost = async () => {
-    const result = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        redirect: "follow",
-    })
-        .then((res) => res.json())
-        .then((res) => {
-            printAnswer(res.choices[0].message.content);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-};
-
-// submit
-$form.addEventListener("submit", (e) => {
+//icon에 적용시킬 함수(토글기능)
+$darkModeButton.addEventListener("click", (e) => {
     e.preventDefault();
-    $input.value = null;
-    sendQuestion(question);
-    apiPost();
-    printQuestion();
+    let currentClass = $body.className;
+    if (currentClass === "dark-mode") {
+        $body.className = "light-mode";
+        $header.classList.remove('dark-mode');
+        $header.classList.add('light-mode');
+        $historyContainer.classList.remove('dark-mode');
+        $historyContainer.classList.add('light-mode');
+    }
+    else {
+        $body.className = "dark-mode";
+        $header.classList.remove('light-mode');
+        $header.classList.add('dark-mode');
+        $historyContainer.classList.remove('light-mode');
+        $historyContainer.classList.add('dark-mode');
+    }
+
+    $darkModeButton.classList.add('scale-down');
+    setTimeout(()=>{
+        $darkModeButton.classList.remove('scale-down');
+        $darkModeButton.innerHTML = $darkModeButton.innerHTML == "🌙" ? "☀️" : "🌙";
+    }, 200);
 });
 
-//dark mode
-function toggleLightDark() {
-    let currentClass = $body.className;
-    $body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
-}
+// function toggleLightDark() {
+//     let currentClass = $body.className;
+//     $body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+//     $header.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+//     $historyContainer.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+// }

@@ -38,8 +38,6 @@ input[type="email"] {
 
 /* layout 관련 */
 .layout-header {
-    /* background-color: #202123; */
-    background-color: rgb(32, 33, 35);
     height: 80px;
     padding: 0 20px;
     box-sizing: border-box;

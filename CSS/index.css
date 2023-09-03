@@ -1,31 +1,19 @@
-/* variable */
-:root {
-    --dark-color : #111;
-    --light-color : #eee;
-}
-/* dark mode */
-body.dark-mode {
-
-}
-
 
 
 /* css */
-.layout-header button { 
-    background-color: rgb(32, 33, 35);
+.dark-mode-button { 
     scale: 1.5;
     border: 0;
     color: transparent;
-    /* text-shadow: 0 0 0 rgb(33, 37, 41); */
-    text-shadow: 0 0 0 rgb(236, 236, 236);
-    padding-right: 15px;
+    margin-right: 15px;
+    transition: text-shadow ease 0.3s, transform ease 0.3s;
 }
 /* hover에서 나중에 js 클릭했을 때로 바꿀 것 */
-.layout-header button:hover {
+/* .dark-mode-button:hover {
     transition: all ease 0.5s;
     transform: rotate(90deg);
     text-shadow: 0 0 0 rgb(33, 37, 41);
-}
+} */
 
 .main-container {
     display: flex;
@@ -34,7 +22,6 @@ body.dark-mode {
 
 .chat-container {
     /* background-color: rgb(60, 64, 67); */
-    background-color: rgb(68, 70, 84);
     padding: 20px 0px 40px 0px;
     /* border-right: 1px solid #ddd; */
     border: none;
