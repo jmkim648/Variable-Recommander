@@ -1,5 +1,3 @@
-
-
 /* css */
 .dark-mode-button { 
     scale: 1.5;
@@ -8,41 +6,26 @@
     margin-right: 15px;
     transition: text-shadow ease 0.3s, transform ease 0.3s;
 }
-/* hover에서 나중에 js 클릭했을 때로 바꿀 것 */
-/* .dark-mode-button:hover {
-    transition: all ease 0.5s;
-    transform: rotate(90deg);
-    text-shadow: 0 0 0 rgb(33, 37, 41);
-} */
 
 .main-container {
     display: flex;
     height: calc(100vh - 80px);
 }
-
 .chat-container {
-    /* background-color: rgb(60, 64, 67); */
     padding: 20px 0px 40px 0px;
-    /* border-right: 1px solid #ddd; */
     border: none;
     display: flex;
     flex-grow: 1;
     justify-content: center;
 }
-
 .history-container {
-    /* background-color: rgb(53, 54, 58); */
-    background-color: rgb(52, 53, 65);
-    color: white;
     width: 300px;
 }
 
 .chat-wrap {
-    color: white;
     width: 50%;
     max-width: 800px;
 }
-
 .select-chatview-wrap {
     height: 85%;
     overflow-y: auto;
@@ -50,69 +33,70 @@
     -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%);
     padding-bottom: 32px;
 }
+.subject-title {
+    padding-top: 10px;
+}
+
+/* select language */
 .select-language {
     display: flex;
+    flex-direction: column;
+}
+.radio-language {
+    display: flex;
+    flex-direction: row;
     gap: 5px;
     padding-top: 2px;
 }
-
 .select-language label {
     padding: 2px 5px;
-    border: 1px solid #ddd;
     border-radius: 10px;
 }
 .select-language input[type=radio] {
     display: none;
 }
 .select-language input[type=radio] + label {
-    color: #e0e0e0;
     font-size: 20px;
 }
-.select-language input[type=radio]:checked + label {
-    color: #000;
-    border: 1px solid skyblue;
-}
 
-.select-purpose {
-
-}
-
-
-.select-purpose input {
-    outline: none;
-}
-.select-purpose input::placeholder {
-    color: white;
-}
-
+/* chat view*/
 .chat-view {
-    background-color: white;
-    color: black;
+    height: 400px;
 }
 .chat-view::-webkit-scrollbar {
     width: 8px;
 }
 .chat-view::-webkit-scrollbar-thumb{
-    background: rgb(52, 53, 65);
     border-radius: 10px;
 }
 .chat-view::-webkit-scrollbar-track {
-    background: #ddd;
     border-radius: 10px;
 }
 
-.chat-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* page-changer */
+/* page1: select purpose / page2: chat input */
+.section-page-change {
+    height: 300px;
 }
 
+/* page1: select purpose */
+.select-purpose {
+    display:flex;
+    flex-direction: column;
+}
+.selectbox-purpose {
+    outline: none;
+}
+.purpose-text-holder {
+    display: flex;
+}
+.purpose-text-holder input {
+    outline: none;
+    flex-grow: 1;
+}
+
+/* page2: chat input */
 .chat-form {
-    /* display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 80%; */
-    background-color: white;
     display: flex;
     padding: 10px;
     border-radius: 16px;
@@ -120,9 +104,7 @@
     margin-top: 40px;
     
 }
-
 .chat-form textarea {
-    /* color: white; */
     border: none;
     resize: none;
     flex-grow: 1;
@@ -131,10 +113,9 @@
     outline: none;
 }
 
+/* submit button */
 .chat-form button {
-    background-color: royalblue;
     border: 0;
-    color: white;
     width: 80px;
     height: 32px;
     border-radius: 10px;

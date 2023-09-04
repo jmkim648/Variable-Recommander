@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Variable Recommander</title>
@@ -13,9 +14,10 @@
     <script defer src="./module/page-changer.js" type="module"></script>
     <script defer src="./module/history.js" type="module"></script>
     <script defer src="./module/gpt-api.js" type="module"></script>
-    
-  </head>
-  <body class="dark-mode">
+
+</head>
+
+<body class="dark-mode">
     <!-- header -->
     <header class="layout-header dark-mode">
         <h1><a href="./index.html">Variable Recommander</a></h1>
@@ -30,8 +32,11 @@
         <div class="chat-container">
             <div class="chat-wrap">
                 <div class="select-chatview-wrap">
-                    <div class="select-wrap">
-                        <div class="select-language">
+                    <div class="select-language">
+                        <div class="language-title-holder">
+                            <p class="subject-title">언어 선택</p>
+                        </div>
+                        <div class="radio-language">
                             <input type="radio" id="python" name="language" checked>
                             <label for="python">Python</label>
                             <input type="radio" id="java" name="language">
@@ -41,19 +46,21 @@
                             <input type="radio" id="javascript" name="language">
                             <label for="javascript">JavaScript</label>
                         </div>
-                        <section class="section-page-change">
-                            <!-- contents in page-changer.js -->
-                        </section>
-                        <div class="select-button-holder">
-                            <button class="select-button">
-                                버튼 구역
-                            </button>
+                    </div>
+                    <div class="chat-view-wrap">
+                        <p class="subject-title">챗 뷰 구역</p>
+                        <div class="chat-view">
+                            <ul>
+                            </ul>
                         </div>
                     </div>
-                    <div class="chat-view">
-                        <p>챗 뷰 구역</p>
-                        <ul>
-                        </ul>
+                    <section class="section-page-change">
+                        <!-- contents in page-changer.js -->
+                    </section>
+                    <div class="select-button-holder">
+                        <button class="select-button">
+                            버튼 구역
+                        </button>
                     </div>
                 </div>
                 <form action="POST" class="chat-form">
@@ -61,12 +68,11 @@
                     <button type="submit">이미지</button>
                 </form>
             </div>
-            
         </div>
         <div class="history-container dark-mode">
-            <p>검색 이력</p>
+            <p class="subject-title">검색 이력</p>
             <ul class="history-ul">
-    
+
             </ul>
         </div>
     </main>
@@ -74,5 +80,6 @@
     <!-- footer -->
     <!-- /footer -->
 
-  </body>
+</body>
+
 </html>

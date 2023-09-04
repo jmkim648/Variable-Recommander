@@ -8,8 +8,14 @@ export {currentPage};
 //create purpose selector
 const $selectPurpose = document.createElement("div");
 $selectPurpose.className = "select-purpose";
+const $purposeTitleHolder = document.createElement("div");
+$purposeTitleHolder.className = "purpose-title-holder";
+const $purposeTitle = document.createElement("p");
+$purposeTitle.className = "subject-title";
+$purposeTitle.innerHTML = "목적 선택";
 const $selectBox = document.createElement("select");
-$selectBox.id = "selectbox-purpose"
+$selectBox.id = "selectbox-purpose";
+$selectBox.className = "selectbox-purpose";
 $selectBox.name = "purpose";
 
 const $selectOption0 = document.createElement("option");
@@ -44,6 +50,8 @@ $purposeEtcText.placeholder = "기타";
 $purposeEtcText.disabled = true;
 
 //setting
+$purposeTitleHolder.appendChild($purposeTitle);
+$selectPurpose.appendChild($purposeTitleHolder);
 $selectBox.appendChild($selectOption0);
 $selectBox.appendChild($selectOption1);
 $selectBox.appendChild($selectOption2);
