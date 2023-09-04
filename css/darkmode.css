@@ -38,6 +38,13 @@ body.light-mode {
     background-color: white;
 }
 
+body.dark-mode .main-title button {
+    background-color: aquamarine;
+}
+body.dark-mode .main-title button.title-selected {
+    background-color: royalblue;
+}
+
 body.dark-mode .subject-title {
     color: white;
 }
@@ -53,7 +60,6 @@ body.light-mode .select-language label {
 }
 body.dark-mode .select-language input[type=radio] + label {
     color: #e0e0e0;
-    width: 100%;
 }
 body.light-mode .select-language input[type=radio] + label {
     color: #e0e0e0;

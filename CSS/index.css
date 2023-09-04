@@ -19,7 +19,7 @@
     height: calc(100vh - 80px);
 }
 .chat-container {
-    padding: 20px 0px 40px 0px;
+    padding: 0px 0px 40px 0px;
     border: none;
     display: flex;
     flex-direction: column;
@@ -41,6 +41,19 @@
     /* mask-image: linear-gradient(0deg, transparent 0%, black 10%);
     -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%); */
     padding-bottom: 16px;
+}
+/* title button */
+.main-title {
+    border: 0;
+    margin: 0;
+    margin-top: 12px;
+    display:flex;
+    gap:0px;
+}
+.main-title button {
+    flex-grow: 0.5;
+    border:0;
+
 }
 
 /* select language */

@@ -1,5 +1,6 @@
 import * as jsonObject from '../data/data.js';
 import { currentPage, $questionText, currentPurpose, $purposeEtcText } from './page-changer.js';
+export { InitData };
 
 //for language, purpose check
 const $languageRadioList = document.querySelectorAll(".select-language input")
@@ -24,10 +25,14 @@ let dataPython = [];
 let dataJava = [];
 let dataCplusplus = [];
 let dataJs = [];
+let conventionPython = [];
+let conventionJava = [];
+let conventionCplusplus = [];
+let conventionJs = [];
 
 //function--------------------------------------
-//자동실행함수 - data파일에서 언어별 내용 불러오기
-window.onload = function () {
+//data각 언어별, 기능별 저장
+function InitData () {
     jsonObject.python.forEach((item) => {
         dataPython.push({
             role: item.role,
@@ -48,6 +53,30 @@ window.onload = function () {
     })
     jsonObject.javaScript.forEach((item) => {
         dataJs.push({
+            role: item.role,
+            content: item.content
+        });
+    })
+    jsonObject.conPython.forEach((item) => {
+        conventionPython.push({
+            role: item.role,
+            content: item.content
+        });
+    })
+    jsonObject.conJava.forEach((item) => {
+        conventionJava.push({
+            role: item.role,
+            content: item.content
+        });
+    })
+    jsonObject.conCPlusPlus.forEach((item) => {
+        conventionCplusplus.push({
+            role: item.role,
+            content: item.content
+        });
+    })
+    jsonObject.conJavaScript.forEach((item) => {
+        conventionJs.push({
             role: item.role,
             content: item.content
         });
@@ -163,18 +192,8 @@ const dataSelect = () => {
             selectedLang = node.id;
         }
     })
-    if (selectedLang === "python") {
-        currentData = dataPython;
-    }
-    else if (selectedLang === "java") {
-        currentData = dataJava;
-    }
-    else if (selectedLang === "cplusplus") {
-        currentData = dataCplusplus;
-    }
-    else if (selectedLang === "javascript") {
-        currentData = dataJs;
-    }
+    selectData(currentPage, selectedLang);
+    console.log(currentData);
 };
 
 //data select 이후에 위치
@@ -182,3 +201,34 @@ const dataSelect = () => {
 const makeQuestion = (currentPurpose) => {
     return question = `${currentPurpose}을 위한 함수명/변수명 추천해줘.`
 };
+
+function selectData(currentPage, selectedLang) {
+    if (currentPage === 1) {
+        if (selectedLang === "python") {
+            currentData = dataPython;
+        }
+        else if (selectedLang === "java") {
+            currentData = dataJava;
+        }
+        else if (selectedLang === "cplusplus") {
+            currentData = dataCplusplus;
+        }
+        else if (selectedLang === "javascript") {
+            currentData = dataJs;
+        }
+    }
+    else if (currentPage === 2) {
+        if (selectedLang === "python") {
+            currentData = conventionPython;
+        }
+        else if (selectedLang === "java") {
+            currentData = conventionJava;
+        }
+        else if (selectedLang === "cplusplus") {
+            currentData = conventionCplusplus;
+        }
+        else if (selectedLang === "javascript") {
+            currentData = conventionJs;
+        }
+    }
+}

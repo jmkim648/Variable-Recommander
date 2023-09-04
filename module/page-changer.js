@@ -1,9 +1,19 @@
-export { currentPage, $questionText, currentPurpose, $purposeEtcText };
+export { currentPage, $questionText, currentPurpose, $purposeEtcText, displayPage };
 
 //html 페이지 구현
 const $sectionPageChange = document.querySelector(".section-page-change");
-let currentPage = 1;
+let currentPage = 2;
 let currentPurpose = "데이터베이스 연결";
+
+//li로 만들어서 addelement?
+const textPage1Init = "함수/변수명을 추천합니다.\n언어와 목적을 선택한 뒤 버튼을 눌러주세요."
+const textPage2Init = "코드를 해당 언어의 컨벤션에 맞게 고쳐줍니다.\n수정할 코드를 입력한 뒤 버튼을 눌러주세요."
+
+
+//페이지 전환용 버튼
+const $selectTitle1 = document.querySelector(".title-variable");
+const $selectTitle2 = document.querySelector(".title-convention");
+const $chatListInit = document.querySelector(".chat-view ul");
 
 //page 1-----------------------------
 //용도에 따른 함수명, 변수명 추천
@@ -113,7 +123,6 @@ $questionTextHolder.className = "question-text-holder";
 const $questionText = document.createElement("textarea");
 $questionText.name = "question";
 $questionText.id = "question";
-$questionText.autofocus = true;
 
 $chatInputTitleHolder.appendChild($chatInputTitle);
 $chatInput.appendChild($chatInputTitleHolder);
@@ -155,16 +164,45 @@ $purposeEtcText.addEventListener("input", (e) => {
     currentPurpose = e.target.value;
 });
 
-//display function
-function changeHTMLPage(currentPage) {
+//Init page
+function displayPage() {
+    currentPage = 1;
     $sectionPageChange.textContent = "";
-    if (currentPage === 1) {
-        $sectionPageChange.appendChild($selectPurpose);
-    }
-    else if (currentPage === 2) {
-        $sectionPageChange.appendChild($chatInput);
-    }
+    $sectionPageChange.appendChild($selectPurpose);
+    $selectTitle1.classList.remove("title-selected");
+    $selectTitle2.classList.remove("title-selected");
+    $selectTitle1.classList.add("title-selected");
+    $chatListInit.innerHTML = textPage1Init;
 }
-changeHTMLPage(currentPage);
 
-
+$selectTitle1.addEventListener("click", () => {
+    currentPage = 1;
+    $sectionPageChange.textContent = "";
+    $sectionPageChange.appendChild($selectPurpose);
+    $selectTitle1.classList.remove("title-selected");
+    $selectTitle2.classList.remove("title-selected");
+    $selectTitle1.classList.add("title-selected");
+    
+    //page 2의 input Init
+    $questionText.value = "";
+    //display Init
+    $chatListInit.innerHTML = textPage1Init;
+})
+$selectTitle2.addEventListener("click", () => {
+    currentPage = 2;
+    $sectionPageChange.textContent = "";
+    $sectionPageChange.appendChild($chatInput);
+    $selectTitle1.classList.remove("title-selected");
+    $selectTitle2.classList.remove("title-selected");
+    $selectTitle2.classList.add("title-selected");
+    $questionText.focus();
+    
+    // page1의 radio옵션 Init
+    $radioPurpose0.click();
+    $purposeEtcText.style.display = "none";
+    $purposeEtcText.disabled = true;
+    $purposeEtcText.value = "";
+    currentPurpose = $radioPurpose0.id;
+    // display init
+    $chatListInit.innerHTML = textPage2Init;
+})
