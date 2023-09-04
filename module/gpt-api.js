@@ -1,5 +1,5 @@
 import * as jsonObject from '../data/data.js';
-import { currentPage } from './page-changer.js';
+import { currentPage, $questionText, currentPurpose, $purposeEtcText } from './page-changer.js';
 
 //for language, purpose check
 const $languageRadioList = document.querySelectorAll(".select-language input")
@@ -10,8 +10,8 @@ let selectedLang = '';
 //목적 선택 변수
 
 //for chatGPT API
-const $form = document.querySelector("form");
-const $input = document.querySelector(".chat-form textarea");
+const $form = document.querySelector(".chat-form");
+const $input = $questionText;
 const $chatList = document.querySelector(".chat-view ul");
 
 let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
@@ -63,15 +63,30 @@ $input.addEventListener("input", (e) => {
 
 // 사용자의 질문을 객체로 만들어서 push
 const saveQuestion = (question) => {
-    if (question) {
-        currentData.push({
-            role: "user",
-            content: question,
-        });
-        questionList.push({
-            role: "user",
-            content: question,
-        });
+    if (currentPage === 1) {
+        question = makeQuestion(currentPurpose);
+        if (question) {
+            currentData.push({
+                role: "user",
+                content: question,
+            });
+            questionList.push({
+                role: "user",
+                content: question,
+            });
+        }
+    }
+    else if (currentPage === 2) {
+        if (question) {
+            currentData.push({
+                role: "user",
+                content: question,
+            });
+            questionList.push({
+                role: "user",
+                content: question,
+            });
+        }
     }
 };
 
@@ -92,6 +107,7 @@ const printQuestion = async () => {
 
 // display answer
 const printAnswer = (answer) => {
+    $chatList.innerText = "";
     let li = document.createElement("li");
     li.classList.add("answer");
     li.innerText = answer;
@@ -120,37 +136,49 @@ const apiPost = async () => {
 // submit
 $form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if ($input.value) {
-        $input.value = null;
+    if (currentPage === 1) {
         dataSelect();
-        //find selected purpose
-        //
         saveQuestion(question);
         apiPost();
-        // printQuestion();
-        questionList = [];
-        question = false;
+        if ($purposeEtcText.value) {
+            $purposeEtcText.value = "";
+        }
     }
+    else if (currentPage === 2) {
+        if ($input.value) {
+            $input.value = null;
+            dataSelect();
+            saveQuestion(question);
+            apiPost();
+        }
+    }
+    questionList = [];
+    question = false;
 });
 
-
 //select language and dataList
-const dataSelect = ()=>{
+const dataSelect = () => {
     $languageRadioList.forEach((node) => {
         if (node.checked) {
             selectedLang = node.id;
         }
     })
     if (selectedLang === "python") {
-            currentData = dataPython;
-        }
-        else if (selectedLang === "java") {
-            currentData = dataJava;
-        }
-        else if (selectedLang === "cplusplus") {
-            currentData = dataCplusplus;
-        }
-        else if (selectedLang === "javascript") {
-            currentData = dataJs;
-        }
-}
+        currentData = dataPython;
+    }
+    else if (selectedLang === "java") {
+        currentData = dataJava;
+    }
+    else if (selectedLang === "cplusplus") {
+        currentData = dataCplusplus;
+    }
+    else if (selectedLang === "javascript") {
+        currentData = dataJs;
+    }
+};
+
+//data select 이후에 위치
+//purpose에 따라 question 생성
+const makeQuestion = (currentPurpose) => {
+    return question = `${currentPurpose}을 위한 함수명/변수명 추천해줘.`
+};

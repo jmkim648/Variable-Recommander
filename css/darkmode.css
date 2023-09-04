@@ -6,27 +6,27 @@
 
 /* background color setting for dark mode */
 /* header */
-.layout-header.dark-mode {
+body.dark-mode .layout-header {
     background-color: rgb(32, 33, 35);
 }
-.layout-header.light-mode {
+body.light-mode .layout-header {
     background-color: white;
 }
-.layout-header.dark-mode .dark-mode-button {
+body.dark-mode .layout-header .dark-mode-button {
     background-color: rgb(32, 33, 35);
     text-shadow: 0 0 0 rgb(236, 236, 236);
 }
-.layout-header.light-mode .dark-mode-button {
+body.light-mode .layout-header .dark-mode-button {
     background-color: rgb(236, 236, 236);
     text-shadow: 0 0 0 rgb(32, 33, 35);
 }
 .scale-down {
     transform: scale(0) rotate(180deg);
 }
-.layout-header.dark-mode h1 a {
+body.dark-mode .layout-header h1 a {
     color: white;
 }
-.layout-header.light-mode h1 a {
+body.light-mode .layout-header h1 a {
     color: black;
 }
 
@@ -53,6 +53,7 @@ body.light-mode .select-language label {
 }
 body.dark-mode .select-language input[type=radio] + label {
     color: #e0e0e0;
+    width: 100%;
 }
 body.light-mode .select-language input[type=radio] + label {
     color: #e0e0e0;
@@ -87,13 +88,34 @@ body.light-mode .chat-view::-webkit-scrollbar-track {
     background: #ddd;
 }
 
-body.dark-mode .section-page-change{
+/* body.dark-mode .section-page-change{
     background-color: sandybrown;
 }
 body.light-mode .section-page-change{
     background-color: sandybrown;
-}
+} */
 
+
+body.dark-mode .select-purpose label {
+    border: 1px solid #ddd;
+}
+body.light-mode .select-purpose label {
+    border: 1px solid #ddd;
+}
+body.dark-mode .select-purpose input[type=radio] + label {
+    color: #e0e0e0;
+}
+body.light-mode .select-purpose input[type=radio] + label {
+    color: #e0e0e0;
+}
+body.dark-mode .select-purpose input[type=radio]:checked + label {
+    color: #000;
+    border: 1px solid skyblue;
+}
+body.light-mode .select-purpose input[type=radio]:checked + label {
+    color: #000;
+    border: 1px solid skyblue;
+}
 body.dark-mode .select-purpose input::placeholder {
     color: white;
 }
@@ -101,28 +123,35 @@ body.light-mode .select-purpose input::placeholder {
     color: white;
 }
 
-body.dark-mode .chat-form {
-    background-color: white;
+/* body.dark-mode .chat-form {
+    background-color:rosybrown;
 }
 body.light-mode .chat-form {
-    background-color: white;
+    background-color: rosybrown;
+} */
+body.dark-mode .question-text-holder textarea {
+    background-color: skyblue;
 }
-body.dark-mode .chat-form button {
+body.light-mode .question-text-holder textarea {
+    background-color: skyblue;
+}
+
+body.dark-mode .submit-button-holder button {
     background-color: royalblue;
     color: white;
 }
-body.light-mode .chat-form button {
+body.light-mode .submit-button-holder button {
     background-color: royalblue;
     color: white;
 }
 
 /* history */
-.history-container.dark-mode {
+body.dark-mode .history-container {
     /* background-color: rgb(53, 54, 58); */
     background-color: rgb(52, 53, 65);
     color: white;
 }
-.history-container.light-mode {
+body.light-mode .history-container {
     background-color: rgb(52, 53, 65);
     color: white;
 }

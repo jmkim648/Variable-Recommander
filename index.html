@@ -22,7 +22,6 @@
     <header class="layout-header dark-mode">
         <h1><a href="./index.html">Variable Recommander</a></h1>
         <div>
-            dark mode
             <button class="dark-mode-button" type="button" name="light-dark" title="다크모드">🌙</button>
         </div>
     </header>
@@ -30,6 +29,7 @@
     <!-- main -->
     <main class="main-container">
         <div class="chat-container">
+            <div class="main-title">함수/변수명 추천기</div>
             <div class="chat-wrap">
                 <div class="select-chatview-wrap">
                     <div class="select-language">
@@ -54,19 +54,15 @@
                             </ul>
                         </div>
                     </div>
-                    <section class="section-page-change">
-                        <!-- contents in page-changer.js -->
-                    </section>
-                    <div class="select-button-holder">
-                        <button class="select-button">
-                            버튼 구역
-                        </button>
-                    </div>
+                    <form class="chat-form" action="POST">
+                        <section class="section-page-change">
+                            <!-- contents in page-changer.js -->
+                        </section>
+                        <div class="submit-button-holder">
+                            <button class="submit-button" type="submit">submit 버튼</button>
+                        </div>
+                    </form>
                 </div>
-                <form action="POST" class="chat-form">
-                    <textarea name="question" id="question" autofocus></textarea>
-                    <button type="submit">이미지</button>
-                </form>
             </div>
         </div>
         <div class="history-container dark-mode">

@@ -7,6 +7,13 @@
     transition: text-shadow ease 0.3s, transform ease 0.3s;
 }
 
+.main-title {
+    font-size: 30px;
+}
+.subject-title {
+    padding-top: 10px;
+}
+
 .main-container {
     display: flex;
     height: calc(100vh - 80px);
@@ -15,8 +22,10 @@
     padding: 20px 0px 40px 0px;
     border: none;
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     justify-content: center;
+    align-items: center;
 }
 .history-container {
     width: 300px;
@@ -24,17 +33,14 @@
 
 .chat-wrap {
     width: 50%;
-    max-width: 800px;
+    max-width: 650px;
 }
 .select-chatview-wrap {
-    height: 85%;
-    overflow-y: auto;
-    mask-image: linear-gradient(0deg, transparent 0%, black 10%);
-    -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%);
-    padding-bottom: 32px;
-}
-.subject-title {
-    padding-top: 10px;
+    height: 95%;
+    overflow-y: hidden;
+    /* mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+    -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%); */
+    padding-bottom: 16px;
 }
 
 /* select language */
@@ -48,6 +54,33 @@
     gap: 5px;
     padding-top: 2px;
 }
+/* purpose test */
+.select-purpose {
+    display: flex;
+    flex-direction: column;
+}
+.select-purpose label {
+    display:inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2px;
+    border-radius: 10px;
+    margin-bottom: 2px;
+}
+.select-purpose input[type=radio] {
+    display: none;
+}
+.select-purpose input[type=radio] + label {
+    font-size: 20px;
+}
+.purpose-text-holder input {
+    display:inline-block;
+    width: 100%;
+    outline: none;
+    font-size: 20px;
+    padding: 2px;
+}
+/*  */
 .select-language label {
     padding: 2px 5px;
     border-radius: 10px;
@@ -76,45 +109,55 @@
 /* page-changer */
 /* page1: select purpose / page2: chat input */
 .section-page-change {
+    display:flex;
     height: 300px;
 }
 
 /* page1: select purpose */
-.select-purpose {
+/* .select-purpose {
     display:flex;
     flex-direction: column;
 }
 .selectbox-purpose {
     outline: none;
 }
-.purpose-text-holder {
-    display: flex;
-}
+
 .purpose-text-holder input {
     outline: none;
     flex-grow: 1;
-}
+} */
 
 /* page2: chat input */
-.chat-form {
+.chat-input {
     display: flex;
-    padding: 10px;
-    border-radius: 16px;
-    align-items: center;
-    margin-top: 40px;
-    
+    flex-direction: column;
+    flex-grow: 1;
 }
-.chat-form textarea {
+/* .chatform-title-holder {
+    
+} */
+
+.question-text-holder {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+.question-text-holder textarea {
     border: none;
     resize: none;
-    flex-grow: 1;
-    height: 60px;
+    flex: 1;
     overflow-y: hidden;
     outline: none;
 }
 
 /* submit button */
-.chat-form button {
+.submit-button-holder {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    height: 80px;
+}
+.submit-button-holder button {
     border: 0;
     width: 80px;
     height: 32px;
