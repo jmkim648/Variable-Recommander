@@ -1,4 +1,4 @@
-export { currentPage, $questionText, currentPurpose, $purposeEtcText, displayPage };
+export { currentPage, $questionText, currentPurpose, $purposeEtcText, initSectionPage, $selectTitle1, $selectTitle2, $chatListInit };
 
 //html 페이지 구현
 const $sectionPageChange = document.querySelector(".section-page-change");
@@ -165,7 +165,7 @@ $purposeEtcText.addEventListener("input", (e) => {
 });
 
 //Init page
-function displayPage() {
+function initSectionPage() {
     currentPage = 1;
     $sectionPageChange.textContent = "";
     $sectionPageChange.appendChild($selectPurpose);

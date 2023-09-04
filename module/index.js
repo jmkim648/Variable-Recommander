@@ -1,4 +1,5 @@
-import { displayPage } from './page-changer.js';
+import { initSectionPage } from './page-changer.js';
+import { readLocalStorage, displayLocalStorage } from './history.js'
 import { InitData } from './gpt-api.js'
 
 //◀ ▶
@@ -8,7 +9,9 @@ import { InitData } from './gpt-api.js'
 //page-changer.js   => page-changer에서 그린 html display
 window.onload = function () {
     InitData();
-    displayPage();
+    initSectionPage();
+    readLocalStorage();
+    displayLocalStorage();
 }
 
 //dark mode func
@@ -22,13 +25,13 @@ const $darkModeButton = document.querySelector(".dark-mode-button");
 $darkModeButton.addEventListener("click", (e) => {
     e.preventDefault();
     let currentClass = $body.className;
-    $body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+    $body.className = currentClass === "dark-mode" ? "light-mode" : "dark-mode";
 
     //button animation
     $darkModeButton.classList.add('scale-down');
     setTimeout(()=>{
         $darkModeButton.classList.remove('scale-down');
-        $darkModeButton.innerHTML = $darkModeButton.innerHTML == "🌙" ? "☀️" : "🌙";
+        $darkModeButton.innerHTML = $darkModeButton.innerHTML === "🌙" ? "☀️" : "🌙";
     }, 200);
 });
 

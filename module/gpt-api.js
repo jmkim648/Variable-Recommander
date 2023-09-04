@@ -23,64 +23,25 @@ let questionList = [];
 let currentData = [];
 let dataPython = [];
 let dataJava = [];
-let dataCplusplus = [];
+let dataCpp = [];
 let dataJs = [];
 let conventionPython = [];
 let conventionJava = [];
-let conventionCplusplus = [];
+let conventionCpp = [];
 let conventionJs = [];
+
 
 //function--------------------------------------
 //data각 언어별, 기능별 저장
-function InitData () {
-    jsonObject.python.forEach((item) => {
-        dataPython.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.java.forEach((item) => {
-        dataJava.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.cPlusPlus.forEach((item) => {
-        dataCplusplus.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.javaScript.forEach((item) => {
-        dataJs.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.conPython.forEach((item) => {
-        conventionPython.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.conJava.forEach((item) => {
-        conventionJava.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.conCPlusPlus.forEach((item) => {
-        conventionCplusplus.push({
-            role: item.role,
-            content: item.content
-        });
-    })
-    jsonObject.conJavaScript.forEach((item) => {
-        conventionJs.push({
-            role: item.role,
-            content: item.content
-        });
-    })
+function InitData() {
+    dataPython = jsonObject.python;
+    dataJava = jsonObject.java;
+    dataCpp = jsonObject.cpp;
+    dataJs = jsonObject.javaScript;
+    conventionPython = jsonObject.conPython;
+    conventionJava = jsonObject.conJava;
+    conventionCpp = jsonObject.conCpp;
+    conventionJs = jsonObject.conJavaScript;
 }
 
 //chat gpt api function
@@ -192,7 +153,7 @@ const dataSelect = () => {
             selectedLang = node.id;
         }
     })
-    selectData(currentPage, selectedLang);
+    selectData(selectedLang);
     console.log(currentData);
 };
 
@@ -202,7 +163,7 @@ const makeQuestion = (currentPurpose) => {
     return question = `${currentPurpose}을 위한 함수명/변수명 추천해줘.`
 };
 
-function selectData(currentPage, selectedLang) {
+function selectData(selectedLang) {
     if (currentPage === 1) {
         if (selectedLang === "python") {
             currentData = dataPython;
@@ -211,7 +172,7 @@ function selectData(currentPage, selectedLang) {
             currentData = dataJava;
         }
         else if (selectedLang === "cplusplus") {
-            currentData = dataCplusplus;
+            currentData = dataCpp;
         }
         else if (selectedLang === "javascript") {
             currentData = dataJs;
@@ -225,7 +186,7 @@ function selectData(currentPage, selectedLang) {
             currentData = conventionJava;
         }
         else if (selectedLang === "cplusplus") {
-            currentData = conventionCplusplus;
+            currentData = conventionCpp;
         }
         else if (selectedLang === "javascript") {
             currentData = conventionJs;

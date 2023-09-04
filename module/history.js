@@ -1,3 +1,6 @@
+import { $selectTitle1, $selectTitle2, $chatListInit } from "./page-changer.js";
+export { readLocalStorage, displayLocalStorage, saveLocalStorage };
+//💾
 //로컬스토리지 jsObject라면 list형태로 접근 가능
 //history ul에 순서대로 혹은 역순으로 list 털어서 꽂아주고+이벤트(답변 불러오기), 삭제 아이콘+이벤트(삭제) 추가
 
@@ -17,3 +20,69 @@
 //이벤트
 //그 항목 선택하면 display
 //삭제 아이콘 선택하면 pop? delete?
+
+const $historyContainer = document.querySelector(".history-container");
+const $historyUl = document.querySelector(".history-ul");
+
+//for local storage - key: history
+let localData = [];
+
+//menu bar animation
+const $flipMenuButton = document.createElement("button");
+$flipMenuButton.className = "flip-menu-button";
+$flipMenuButton.innerText = "▶";
+$historyContainer.insertBefore($flipMenuButton, $historyContainer.firstChild);
+
+$flipMenuButton.addEventListener("click", (e) => {
+    if ($historyContainer.className === "history-container") {
+        $historyContainer.className = "history-container fliped closed"
+    }
+    else {
+        $historyContainer.classList.remove("fliped");
+        setTimeout(() => {
+            $historyContainer.classList.remove("closed");
+        }, 300);
+    }
+});
+
+function readLocalStorage() {
+    let tempData = localStorage.getItem('history');
+    if (tempData) {
+        localData = JSON.parse(tempData);
+    }
+    else {
+        localData = [];
+    }
+    console.log(localData);
+}
+
+function saveLocalStorage(data) {
+    const tempData = JSON.stringify(data);
+    localStorage.setItem('history', tempData);
+};
+
+
+function displayLocalStorage() {
+    if (localData) {
+        console.log("display data 진입")
+        for (let i = 0; i < localData.length; i++) {
+            let li = document.createElement("li");
+            li.className = "history-list";
+            li.innerText = `<${localData[i]['language']}>\n${localData[i]['purpose']}`
+            li.addEventListener('click', (e) => {
+                if (localData[i]['page'] === '1') {
+                    $selectTitle1.click();
+                    $chatListInit.innerHTML = localData[i]['answer'];
+                    console.log(localData[i]);
+                    console.log(localData[i]['answer']);
+                }
+                else {
+                    $selectTitle2.click();
+                    $chatListInit.innerHTML = localData[i]['answer'];
+                    console.log(localData[i]['answer']);
+                }
+            });
+            $historyUl.appendChild(li);
+        }
+    }
+}

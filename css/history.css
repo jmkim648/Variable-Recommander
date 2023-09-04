@@ -1,11 +1,34 @@
 .history-container {
     width: 300px;
-    transition: width ease 0.3s;
+    transition: width ease 0.5s;
 }
 
-.closed {
+/* 메뉴 애니메이션 */
+.flip-menu-button {
+    position: relative;
+    right: 24px;
+    top: 28px;
+    scale: 1.8;
+    border: 0;
+    padding: 0;
+    color: transparent;
+    transition: transform ease 0.5s;
+}
+.fliped {
     width: 0;
 }
-.closed *{
+.fliped .flip-menu-button {
+    transform: rotate(180deg);
+}
+/* 메뉴가 다 펴지고 나서 내용물이 보이게 하기 위한 class */
+.closed p, .closed ul {
     display: none;
+}
+
+/* history contents*/
+.history-ul {
+    padding-left: 16px;
+}
+.history-container .subject-title {
+    padding-left: 10px;
 }

@@ -76,7 +76,7 @@ export const java = [
     },
 ]
 
-export const cPlusPlus = [
+export const cpp = [
     {
         "role": "system",
         "content": "assistant는 C++ 전문가이다."
@@ -122,7 +122,7 @@ export const conJava = [
         "content": "앞으로 코드는 java 스타일로 보여줘."
     },
 ]
-export const conCPlusPlus = [
+export const conCpp = [
     {
         "role": "system",
         "content": "assistant는 C++ 전문가이다."
