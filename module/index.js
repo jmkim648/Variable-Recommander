@@ -1,7 +1,7 @@
 import { displayPage } from './page-changer.js';
 import { InitData } from './gpt-api.js'
 
-//◀
+//◀ ▶
 
 //자동실행함수
 //gpt-api.js        => data파일에서 언어별 내용 불러오기

@@ -7,9 +7,6 @@
     transition: text-shadow ease 0.3s, transform ease 0.3s;
 }
 
-.main-title {
-    font-size: 30px;
-}
 .subject-title {
     padding-top: 10px;
 }
@@ -53,7 +50,6 @@
 .main-title button {
     flex-grow: 0.5;
     border:0;
-
 }
 
 /* select language */
@@ -67,33 +63,7 @@
     gap: 5px;
     padding-top: 2px;
 }
-/* purpose test */
-.select-purpose {
-    display: flex;
-    flex-direction: column;
-}
-.select-purpose label {
-    display:inline-block;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 2px;
-    border-radius: 10px;
-    margin-bottom: 2px;
-}
-.select-purpose input[type=radio] {
-    display: none;
-}
-.select-purpose input[type=radio] + label {
-    font-size: 20px;
-}
-.purpose-text-holder input {
-    display:inline-block;
-    width: 100%;
-    outline: none;
-    font-size: 20px;
-    padding: 2px;
-}
-/*  */
+
 .select-language label {
     padding: 2px 5px;
     border-radius: 10px;
@@ -127,18 +97,31 @@
 }
 
 /* page1: select purpose */
-/* .select-purpose {
-    display:flex;
+.select-purpose {
+    display: flex;
     flex-direction: column;
 }
-.selectbox-purpose {
-    outline: none;
+.select-purpose label {
+    display:inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2px;
+    border-radius: 10px;
+    margin-bottom: 2px;
 }
-
+.select-purpose input[type=radio] {
+    display: none;
+}
+.select-purpose input[type=radio] + label {
+    font-size: 20px;
+}
 .purpose-text-holder input {
+    display:inline-block;
+    width: 100%;
     outline: none;
-    flex-grow: 1;
-} */
+    font-size: 20px;
+    padding: 2px;
+}
 
 /* page2: chat input */
 .chat-input {
@@ -146,9 +129,6 @@
     flex-direction: column;
     flex-grow: 1;
 }
-/* .chatform-title-holder {
-    
-} */
 
 .question-text-holder {
     display: flex;

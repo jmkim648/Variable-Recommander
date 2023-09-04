@@ -1,0 +1,11 @@
+.history-container {
+    width: 300px;
+    transition: width ease 0.3s;
+}
+
+.closed {
+    width: 0;
+}
+.closed *{
+    display: none;
+}
