@@ -1,5 +1,6 @@
 import * as jsonObject from '../data/data.js';
 import { currentPage, $questionText, currentPurpose, $purposeEtcText } from './page-changer.js';
+import { displayLocalStorage, localData, saveLocalStorage } from './history.js';
 export { InitData };
 
 //for language, purpose check
@@ -60,10 +61,10 @@ const saveQuestion = (question) => {
                 role: "user",
                 content: question,
             });
-            questionList.push({
-                role: "user",
-                content: question,
-            });
+            // questionList.push({
+            //     role: "user",
+            //     content: question,
+            // });
         }
     }
     else if (currentPage === 2) {
@@ -72,34 +73,52 @@ const saveQuestion = (question) => {
                 role: "user",
                 content: question,
             });
-            questionList.push({
-                role: "user",
-                content: question,
-            });
+            // questionList.push({
+            //     role: "user",
+            //     content: question,
+            // });
         }
     }
 };
 
 // display question
-const printQuestion = async () => {
-    if (question) {
-        let li = document.createElement("li");
-        li.classList.add("question");
-        questionList.map((el) => {
-            li.innerText = el.content;
-        });
-        console.log(li);
-        $chatList.appendChild(li);
-        questionList = [];
-        question = false;
-    }
-};
+// const printQuestion = async () => {
+//     if (question) {
+//         let li = document.createElement("li");
+//         li.classList.add("question");
+//         questionList.map((el) => {
+//             li.innerText = el.content;
+//         });
+//         console.log(li);
+//         $chatList.appendChild(li);
+//         questionList = [];
+//         question = false;
+//     }
+// };
 
 // display answer
 const printAnswer = (answer) => {
+    if (currentPage === 1) {
+        localData.push({
+            answer: replaceNltoBr(answer),
+            language: `${selectedLang}`,
+            page: `${currentPage}`,
+            purpose: `${currentPurpose}을 위한 함수/변수명`
+        })
+    }
+    else if (currentPage === 2) {
+        localData.push({
+            answer: replaceNltoBr(answer),
+            language: `${selectedLang}`,
+            page: `${currentPage}`,
+            purpose: '코드 컨벤션 추천'
+        })
+    }
+    saveLocalStorage(localData);
+    displayLocalStorage();
     $chatList.innerText = "";
     let li = document.createElement("li");
-    li.classList.add("answer");
+    li.className = "answer";
     li.innerText = answer;
     $chatList.appendChild(li);
 };
@@ -154,7 +173,6 @@ const dataSelect = () => {
         }
     })
     selectData(selectedLang);
-    console.log(currentData);
 };
 
 //data select 이후에 위치
@@ -171,7 +189,7 @@ function selectData(selectedLang) {
         else if (selectedLang === "java") {
             currentData = dataJava;
         }
-        else if (selectedLang === "cplusplus") {
+        else if (selectedLang === "cpp") {
             currentData = dataCpp;
         }
         else if (selectedLang === "javascript") {
@@ -185,11 +203,18 @@ function selectData(selectedLang) {
         else if (selectedLang === "java") {
             currentData = conventionJava;
         }
-        else if (selectedLang === "cplusplus") {
+        else if (selectedLang === "cpp") {
             currentData = conventionCpp;
         }
         else if (selectedLang === "javascript") {
             currentData = conventionJs;
         }
     }
+}
+
+function replaceNltoBr(answer) {
+    if (typeof answer !== 'string') {
+        return answer;
+    }
+    return answer.replace(/\n/g, "<br>");
 }

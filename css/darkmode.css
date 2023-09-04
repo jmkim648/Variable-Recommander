@@ -141,6 +141,19 @@ body.dark-mode .question-text-holder textarea {
 body.light-mode .question-text-holder textarea {
     background-color: skyblue;
 }
+body.dark-mode .question-text-holder textarea::-webkit-scrollbar-thumb{
+    background: rgb(52, 53, 65);
+}
+body.light-mode .question-text-holder textarea::-webkit-scrollbar-thumb{
+    background: rgb(52, 53, 65);
+}
+body.dark-mode .question-text-holder textarea::-webkit-scrollbar-track {
+    background: #ddd;
+}
+body.light-mode .question-text-holder textarea::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
 
 body.dark-mode .submit-button-holder button {
     background-color: royalblue;

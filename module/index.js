@@ -34,5 +34,3 @@ $darkModeButton.addEventListener("click", (e) => {
         $darkModeButton.innerHTML = $darkModeButton.innerHTML === "🌙" ? "☀️" : "🌙";
     }, 200);
 });
-
-//history menu slide func

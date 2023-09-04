@@ -1,5 +1,5 @@
-import { $selectTitle1, $selectTitle2, $chatListInit } from "./page-changer.js";
-export { readLocalStorage, displayLocalStorage, saveLocalStorage };
+import { $selectTitle1, $selectTitle2, $chatListInit, $purposeEtcText, $questionText } from "./page-changer.js";
+export { localData, readLocalStorage, displayLocalStorage, saveLocalStorage };
 //💾
 //로컬스토리지 jsObject라면 list형태로 접근 가능
 //history ul에 순서대로 혹은 역순으로 list 털어서 꽂아주고+이벤트(답변 불러오기), 삭제 아이콘+이벤트(삭제) 추가
@@ -53,7 +53,6 @@ function readLocalStorage() {
     else {
         localData = [];
     }
-    console.log(localData);
 }
 
 function saveLocalStorage(data) {
@@ -63,8 +62,11 @@ function saveLocalStorage(data) {
 
 
 function displayLocalStorage() {
+    $historyUl.innerText = "";
+    $purposeEtcText.value = "";
+    $questionText.value = "";
+
     if (localData) {
-        console.log("display data 진입")
         for (let i = 0; i < localData.length; i++) {
             let li = document.createElement("li");
             li.className = "history-list";
@@ -73,13 +75,14 @@ function displayLocalStorage() {
                 if (localData[i]['page'] === '1') {
                     $selectTitle1.click();
                     $chatListInit.innerHTML = localData[i]['answer'];
-                    console.log(localData[i]);
-                    console.log(localData[i]['answer']);
+                    $purposeEtcText.value = "";
+                    $questionText.value = "";
                 }
                 else {
                     $selectTitle2.click();
                     $chatListInit.innerHTML = localData[i]['answer'];
-                    console.log(localData[i]['answer']);
+                    $purposeEtcText.value = "";
+                    $questionText.value = "";
                 }
             });
             $historyUl.appendChild(li);

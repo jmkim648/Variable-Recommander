@@ -32,3 +32,10 @@
 .history-container .subject-title {
     padding-left: 10px;
 }
+
+.history-list {
+
+}
+.history-list:hover {
+    cursor:pointer;
+}
