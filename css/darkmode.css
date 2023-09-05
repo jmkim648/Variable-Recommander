@@ -155,9 +155,11 @@ body.light-mode .select-language label {
 
 body.dark-mode .select-language input[type=radio]:checked+label {
     background-color: var(--dark-point-color1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 body.light-mode .select-language input[type=radio]:checked+label {
     background-color: var(--light-point-color1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* 챗 뷰 */
@@ -198,9 +200,11 @@ body.light-mode .select-purpose label {
 
 body.dark-mode .select-purpose input[type=radio]:checked+label {
     background-color: var(--dark-point-color1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 body.light-mode .select-purpose input[type=radio]:checked+label {
     background-color: var(--light-point-color1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 body.dark-mode .purpose-text-holder input[type=text] {
