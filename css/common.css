@@ -74,7 +74,8 @@ body {
 }
 
 /* main */
-body{
+body, * button {
   /* font-family: 'Nanum Myeongjo', serif; */
   font-family:  'Pretendard-Regular', sans-serif;
 }
+

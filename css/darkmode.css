@@ -1,36 +1,39 @@
 /* variable */
 :root {
-    --black: black;
-    --white: white;
-    /* dark */
-    --dark-color: #eee;
-    /* --dark-color-history: rgb(53, 54, 58); */
-    --dark-color-header: rgb(32, 33, 35);
-    --dark-color-main: rgb(68, 70, 84);
-    --dark-color-history: rgb(52, 53, 65);
-    --dark-point-color1: royalblue;
-    --dark-point-color2: burlywood;
+    --black: #151515;
+    --white: rgb(230, 230, 230);
 
-    --dark-text-shadow: rgb(236, 236, 236);
+    /* dark */
+    --dark-color-header: rgb(32, 33, 35);
+    --dark-color-main: rgb(70, 70, 85);
+    --dark-color-history: rgb(53, 53, 65);
+    --dark-point-color1: #5b7484;
+    --dark-point-color2: #dad8ec;
+    --dark-text-shadow: rgb(235, 235, 235);
 
     /* light */
-    /* rgb(236, 236, 236) */
 
-    --light-color: #111;
-    --light-color-header: rgb(132, 133, 235);
-    --light-color-main: rgb(168, 170, 184);
-    --light-color-history: rgb(82, 83, 85);
-    --light-point-color1: red;
-    --light-point-color2: green;
-
-    --light-text-shadow: rgb(32, 33, 35);
+    --light-color-header: #e9cd6a;
+    --light-color-main: rgb(235, 235, 235);
+    --light-color-history: rgb(220, 220, 220);
+    --light-point-color1: #e9cd6a;
+    --light-point-color2: rgb(220, 220, 220);
+    --light-text-shadow: rgb(55, 55, 55);
 
     /* border */
-    --border-gray: #ddd;
-    --border-black: black;
+    --border-gray: rgb(200, 200, 200);
+    --border-darkgray: rgb(180, 180, 180);
+    --border-black: #151515;
 
-    --dark-point-border: skyblue;
-    --light-point-border: black;
+    --dark-point-border: rgb(230, 230, 230);
+    --light-point-border: #151515;
+
+    /* input */
+    --dark-input-textbox: rgb(230, 230, 230);
+    --dark-input-textarea: rgb(230, 230, 230);
+    
+    --light-input-textbox: rgb(220, 220, 220);
+    --light-input-textarea: rgb(220, 220, 220);
 }
 
 /* background color setting for dark mode */
@@ -43,18 +46,23 @@ body.light-mode .subject-title {
     color: var(--black);
 }
 
-body.dark-mode .select-language.title-holder {
+body.dark-mode .select-language .title-holder {
     border-bottom: solid 1px var(--border-gray);
 }
-body.light-mode .select-language.title-holder {
+body.light-mode .select-language .title-holder {
     border-bottom: solid 1px var(--border-black);
 }
 
 body.dark-mode .chat-view-wrap .title-holder {
     background-color: var(--dark-point-color1);
+    border: solid 1px var(--dark-point-border);
+    border-top: 0;
 }
 body.light-mode .chat-view-wrap .title-holder {
     background-color: var(--light-point-color1);
+    border: solid 1px var(--border-darkgray);
+    border-bottom: 0;
+    border-top: 0;
 }
 
 body.dark-mode .select-purpose .title-holder {
@@ -64,12 +72,19 @@ body.light-mode .select-purpose .title-holder {
     border-bottom: solid 1px var(--border-black);
 }
 
-/* body.dark-mode .chat-input .title-holder {
-
+body.dark-mode .chat-input .title-holder {
+    border-bottom: solid 1px var(--border-gray);
 }
 body.light-mode .chat-input .title-holder {
+    border-bottom: solid 1px var(--border-black);
+}
 
-} */
+body.dark-mode .history-container .title-holder {
+    border-bottom: solid 1px var(--border-gray);
+}
+body.light-mode .history-container .title-holder {
+    border-bottom: solid 1px var(--border-black);
+}
 
 /* header */
 body.dark-mode .layout-header {
@@ -106,16 +121,26 @@ body.light-mode {
 /* 함수/변수추천, 코드 컨벤션 추천 버튼 */
 body.dark-mode .main-title button {
     background-color: var(--dark-point-color2);
+    border-bottom: solid 1px var(--dark-point-border);
+    color: var(--black);
 }
 body.dark-mode .main-title button.title-selected {
+    color: var(--white);
     background-color: var(--dark-point-color1);
+    border: solid 1px var(--dark-point-border);
+    border-bottom: 0;
 }
 
 body.light-mode .main-title button {
     background-color: var(--light-point-color2);
+    border-bottom: solid 1px var(--border-darkgray);
+    color: var(--black);
 }
 body.light-mode .main-title button.title-selected {
+    color: var(--black);
     background-color: var(--light-point-color1);
+    border: solid 1px var(--border-darkgray);
+    border-bottom: 0;
 }
 
 /* 언어 선택 */
@@ -124,17 +149,15 @@ body.dark-mode .select-language label {
     color: var(--white);
 }
 body.light-mode .select-language label {
-    border: 1px solid var(--border-black);
+    border: 1px solid var(--border-darkgray);
     color: var(--black);
 }
 
 body.dark-mode .select-language input[type=radio]:checked+label {
     background-color: var(--dark-point-color1);
-    border: 1px solid var(--dark-point-border);
 }
 body.light-mode .select-language input[type=radio]:checked+label {
     background-color: var(--light-point-color1);
-    border: 1px solid var(--light-point-border);
 }
 
 /* 챗 뷰 */
@@ -145,6 +168,7 @@ body.dark-mode .chat-view {
 body.light-mode .chat-view {
     background-color: var(--white);
     color: var(--black);
+    border: solid 1px var(--border-darkgray);
 }
 
 body.dark-mode .chat-view::-webkit-scrollbar-thumb {
@@ -164,47 +188,51 @@ body.light-mode .chat-view::-webkit-scrollbar-track {
 /* page 1 */
 /* 목적 선택 */
 body.dark-mode .select-purpose label {
-    border: 1px solid #ddd;
-    color: #e0e0e0;
+    border: 1px solid var(--border-gray);
+    color: var(--white);
 }
-
 body.light-mode .select-purpose label {
-    border: 1px solid #ddd;
-    color: #e0e0e0;
+    border: 1px solid var(--border-darkgray);
+    color: var(--black);
 }
 
 body.dark-mode .select-purpose input[type=radio]:checked+label {
-    color: royalblue;
-    border: 1px solid skyblue;
+    background-color: var(--dark-point-color1);
 }
-
 body.light-mode .select-purpose input[type=radio]:checked+label {
-    /* color: #000; */
-    border: 1px solid skyblue;
+    background-color: var(--light-point-color1);
 }
 
 body.dark-mode .purpose-text-holder input[type=text] {
-    background-color: white;
+    background-color: var(--dark-input-textbox);
+    border: solid 1px var(--dark-point-border);
 }
-
 body.light-mode .purpose-text-holder input[type=text] {
-    background-color: white;
+    background-color: var(--light-input-textbox);
+    border: solid 1px var(--border-darkgray);
+}
+body.dark-mode .purpose-text-holder input[type=text]:disabled {
+    background-color: var(--dark-color-main);
+    border: 1px solid var(--border-gray);
+}
+body.light-mode .purpose-text-holder input[type=text]:disabled {
+    background-color: var(--light-color-main);
+    border: 1px solid var(--border-darkgray);
 }
 
 /* page 2 */
 /* 코드 입력 */
 body.dark-mode .question-text-holder textarea {
-    background-color: #ccc;
+    background-color: var(--dark-input-textarea);
 }
-
 body.light-mode .question-text-holder textarea {
-    background-color: white;
+    background-color: var(--light-input-textarea);
+    border: solid 1px var(--border-darkgray);
 }
 
 body.dark-mode .question-text-holder textarea::-webkit-scrollbar-thumb {
     background: rgb(52, 53, 65);
 }
-
 body.light-mode .question-text-holder textarea::-webkit-scrollbar-thumb {
     background: rgb(52, 53, 65);
 }
@@ -212,59 +240,57 @@ body.light-mode .question-text-holder textarea::-webkit-scrollbar-thumb {
 body.dark-mode .question-text-holder textarea::-webkit-scrollbar-track {
     background: #ddd;
 }
-
 body.light-mode .question-text-holder textarea::-webkit-scrollbar-track {
     background: #ddd;
 }
 
 /* submit 버튼 */
 body.dark-mode .submit-button-holder button {
-    background-color: royalblue;
-    color: white;
+    background-color: var(--dark-point-color1);
+    border: solid 1px var(--border-gray);
+    color: var(--white);
 }
-
 body.light-mode .submit-button-holder button {
-    background-color: royalblue;
-    color: white;
+    background-color: var(--light-point-color1);
+    border: solid 1px var(--border-darkgray);
+    color: var(--black);
 }
 
 /* history */
 body.dark-mode .history-container {
     background-color: var(--dark-color-history);
-    color: white;
+    color: var(--white);
 }
-
 body.light-mode .history-container {
-    background-color: rgb(236, 236, 236);
-    color: black;
+    background-color: var(--light-color-history);
+    color: var(--black);
 }
 
 /* 메뉴 슬라이드 아이콘 */
 body.dark-mode .flip-menu-button {
     background-color: var(--dark-color-main);
-    text-shadow: 0 0 0 rgb(236, 236, 236);
+    text-shadow: 0 0 0 var(--dark-text-shadow);
 }
 
 body.light-mode .flip-menu-button {
-    background-color: rgb(236, 236, 236);
-    text-shadow: 0 0 0 rgb(32, 33, 35);
+    background-color: var(--light-color-main);
+    text-shadow: 0 0 0 var(--light-text-shadow);
 }
 
 /* list 내부 x아이콘 */
 body.dark-mode .icon-history-delete {
     background-color: var(--dark-color-history);
-    text-shadow: 0 0 0 rgb(236, 236, 236);
+    text-shadow: 0 0 0 var(--dark-text-shadow);
 }
-
 body.light-mode .icon-history-delete {
-    background-color: rgb(236, 236, 236);
-    text-shadow: 0 0 0 rgb(52, 53, 65);
+    background-color: var(--light-color-history);
+    text-shadow: 0 0 0 var(--light-text-shadow);
 }
 
+/* history 내부 글씨 */
 body.dark-mode .history-p {
-    color: white;
+    color: var(--white);
 }
-
 body.light-mode .history-p {
-    color: black;
+    color: var(--black);
 }

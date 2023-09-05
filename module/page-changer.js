@@ -84,7 +84,6 @@ const $purposeTextHolder = document.createElement("div");
 $purposeTextHolder.className = "purpose-text-holder";
 const $purposeEtcText = document.createElement("input");
 $purposeEtcText.type = "text";
-$purposeEtcText.style.display = "none";
 $purposeEtcText.disabled = true;
 
 //setting
@@ -131,7 +130,6 @@ $chatInput.appendChild($questionTextHolder);
 
 //select purpose
 $radioSelectPurpose.addEventListener("change", (e) => {
-    $purposeEtcText.style.display = "none";
     $purposeEtcText.disabled = true;
     $purposeEtcText.value = "";
     if ($radioPurpose0.checked) {
@@ -153,7 +151,6 @@ $radioSelectPurpose.addEventListener("change", (e) => {
         currentPurpose = $radioPurpose5.id;
     }
     else if ($radioPurpose6.checked) {
-        $purposeEtcText.style.display = "inline-block";
         $purposeEtcText.disabled = false;
         $purposeEtcText.focus();
     }
@@ -199,7 +196,6 @@ $selectTitle2.addEventListener("click", () => {
     
     // page1의 radio옵션 Init
     $radioPurpose0.click();
-    $purposeEtcText.style.display = "none";
     $purposeEtcText.disabled = true;
     $purposeEtcText.value = "";
     currentPurpose = $radioPurpose0.id;

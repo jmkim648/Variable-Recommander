@@ -13,10 +13,15 @@
 /* title */
 .subject-title {
     padding: 10px 0px 6px 10px;
+    letter-spacing: 1px;
 }
 .select-language .title-holder {
-    border-bottom: solid 1px #ddd;
     margin-bottom: 6px;
+}
+.chat-view-wrap .subject-title{
+    text-align: center;
+    padding: 8px 0;
+    
 }
 
 .select-purpose .title-holder {
@@ -85,10 +90,9 @@
     gap:0px;
 }
 .main-title button {
-    flex-grow: 0.5;
+    width: 50%;
     border:0;
     height: 32px;
-    color: white;
     font-size: 16px;
 }
 .title-variable {
@@ -102,7 +106,9 @@
 .chat-view {
     height: 400px;
     overflow: auto;
-    border-radius: 5px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 .chat-view::-webkit-scrollbar {
     width: 8px;
@@ -130,9 +136,9 @@
     display:inline-block;
     box-sizing: border-box;
     width: 100%;
-    padding: 2px;
+    padding: 3px 8px;
     border-radius: 10px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 .select-purpose label:hover {
     cursor: pointer;
@@ -144,12 +150,15 @@
 .select-purpose input[type=radio] + label {
     font-size: 20px;
 }
+
 .purpose-text-holder input {
     display:inline-block;
     width: 100%;
+    height: 34px;
     outline: none;
     font-size: 20px;
-    padding: 2px;
+    padding: 3px 8px;
+    border-radius: 10px;
 }
 
 /* page2: chat input */
@@ -160,6 +169,7 @@
 }
 
 .question-text-holder {
+    margin-top: 4px;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -181,23 +191,19 @@
     border-radius: 10px;
 }
 
-.radio-select-purpose label {
-    padding: 4px 8px;
-}
-.purpose-text-holder input {
-    padding: 4px 8px;
-}
-
 /* submit button */
 .submit-button-holder {
     display: flex;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: 1px;
     height: 80px;
 }
 .submit-button-holder button {
     border: 0;
-    width: 80px;
+    width: 100%;
     height: 32px;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 15px;
+    
 }
