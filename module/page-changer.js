@@ -6,7 +6,7 @@ let currentPage = 2;
 let currentPurpose = "데이터베이스 연결";
 
 //li로 만들어서 addelement?
-const textPage1Init = "함수/변수명을 추천합니다.<br>언어와 목적을 선택한 뒤 '추천해줘!' 버튼을 눌러주세요.<br>시간이 조금 걸릴 수 있으며, 부정확한 답변이 나올 수 있습니다."
+const textPage1Init = "함수/변수명을 추천합니다.<br>언어와 용도를 선택한 뒤 '추천해줘!' 버튼을 눌러주세요.<br>기타의 경우 '이미지 인식'과 같은 형태로 입력하는 것이 좋습니다.<br>시간이 조금 걸릴 수 있으며, 부정확한 답변이 나올 수 있습니다."
 const textPage2Init = "임의의 코드를 선택한 언어의 컨벤션에 맞게 고쳐줍니다.<br>수정할 코드를 입력한 뒤 '추천해줘!' 버튼을 눌러주세요.<br>시간이 조금 걸릴 수 있으며, 부정확한 답변이 나올 수 있습니다."
 
 
@@ -24,7 +24,7 @@ const $purposeTitleHolder = document.createElement("div");
 $purposeTitleHolder.className = "title-holder";
 const $purposeTitle = document.createElement("p");
 $purposeTitle.className = "subject-title";
-$purposeTitle.innerHTML = "목적 선택";
+$purposeTitle.innerHTML = "용도 선택";
 const $radioSelectPurpose = document.createElement("div");
 $radioSelectPurpose.className = "radio-select-purpose";
 

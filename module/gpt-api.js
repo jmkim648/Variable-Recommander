@@ -5,11 +5,7 @@ export { initData };
 
 //for language, purpose check
 const $languageRadioList = document.querySelectorAll(".select-language input")
-
-//언어 선택 변수
 let selectedLang = '';
-
-//목적 선택 변수
 
 //for chatGPT API
 const $form = document.querySelector(".chat-form");
@@ -18,7 +14,6 @@ const $chatList = document.querySelector(".chat-view ul");
 
 let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 let question;
-let questionList = [];
 
 // dataList
 let currentData = [];
@@ -31,9 +26,10 @@ let conventionJava = [];
 let conventionCpp = [];
 let conventionJs = [];
 
+let apiReady = true;
 
 //function--------------------------------------
-//data각 언어별, 기능별 저장
+//data각 언어별, 기능별 프롬프트 엔지니어링 데이터 저장
 function initData() {
     dataPython = jsonObject.python;
     dataJava = jsonObject.java;
@@ -47,7 +43,6 @@ function initData() {
 
 //chat gpt api function
 // input에 입력된 질문 받아오는 eventListener
-//$input 나중에 만든 input 요소로 태그 바꿔줘야함
 $input.addEventListener("input", (e) => {
     question = e.target.value;
 });
@@ -61,10 +56,6 @@ const saveQuestion = (question) => {
                 role: "user",
                 content: question,
             });
-            // questionList.push({
-            //     role: "user",
-            //     content: question,
-            // });
         }
     }
     else if (currentPage === 2) {
@@ -73,10 +64,6 @@ const saveQuestion = (question) => {
                 role: "user",
                 content: question,
             });
-            // questionList.push({
-            //     role: "user",
-            //     content: question,
-            // });
         }
     }
 };
@@ -106,33 +93,38 @@ const apiPost = async () => {
         .then((res) => res.json())
         .then((res) => {
             printAnswer(res.choices[0].message.content);
+            apiReady = true;
         })
         .catch((err) => {
             console.log(err);
+            apiReady = true;
         });
 };
 
 // submit
 $form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (currentPage === 1) {
-        dataSelect();
-        saveQuestion(question);
-        apiPost();
-        if ($purposeEtcText.value) {
-            $purposeEtcText.value = "";
-        }
-    }
-    else if (currentPage === 2) {
-        if ($input.value) {
-            $input.value = null;
+    if (apiReady) {
+        apiReady = false;
+        if (currentPage === 1) {
             dataSelect();
             saveQuestion(question);
             apiPost();
+            if ($purposeEtcText.value) {
+                $purposeEtcText.value = "";
+            }
         }
+        else if (currentPage === 2) {
+            if ($input.value) {
+                $input.value = null;
+                dataSelect();
+                saveQuestion(question);
+                apiPost();
+            }
+        }
+        question = false;
     }
-    questionList = [];
-    question = false;
+    
 });
 
 //select language and dataList
