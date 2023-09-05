@@ -45,7 +45,7 @@ export const python = [
     },
     {
         "role": "assistant",
-        "content": "함수명: \n 1. multiply: 곱셈을 수행하는 함수 \n 2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수 \n 3. calculate_product: 곱셈 결과를 계산하는 함수 \n 4. multiply_numbers: 숫자들을 곱하는 함수 \n 5. calc_multiplication: 곱셈을 계산하는 함수 \n 변수명: \n 1. num1, num2: 곱셈을 수행할 숫자들을 나타내는 변수명 \n 2. result: 곱셈 결과를 저장하는 변수명 \n 3. multiplier, multiplicand: 곱셈의 피연산자를 나타내는 변수명 \n 5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수명"
+        "content": "함수명: \n 1. multiply: 곱셈을 수행하는 함수 \n 2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수 \n 3. calculate_product: 곱셈 결과를 계산하는 함수 \n 4. multiply_numbers: 숫자들을 곱하는 함수 \n 5. calc_multiplication: 곱셈을 계산하는 함수 \n\n 변수명: \n 1. num1, num2: 곱셈을 수행할 숫자들을 나타내는 변수명 \n 2. result: 곱셈 결과를 저장하는 변수명 \n 3. multiplier, multiplicand: 곱셈의 피연산자를 나타내는 변수명 \n 5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수명"
     },
     {
         "role": "user",

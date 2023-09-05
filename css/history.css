@@ -21,7 +21,7 @@
     transform: rotate(180deg);
 }
 /* 메뉴가 다 펴지고 나서 내용물이 보이게 하기 위한 class */
-.closed p, .closed ul {
+.closed p, .closed ul, .closed .title-holder {
     display: none;
 }
 
@@ -29,13 +29,35 @@
 .history-ul {
     padding-left: 16px;
 }
+.history-container .title-holder {
+    border-bottom: solid 1px #ddd;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    width: 260px;
+}
 .history-container .subject-title {
-    padding-left: 10px;
+    padding-left: 4px;
+    padding-bottom: 6px;
 }
 
 .history-list {
-
+    list-style: none;
+    display: flex;
+    margin-bottom: 12px;
 }
 .history-list:hover {
     cursor:pointer;
+}
+
+.history-icon-holder {
+    padding-top: 14px;
+    padding-right: 10px;
+    margin-left: auto;
+}
+.history-p {
+    
+}
+.icon-history-delete {
+    color: transparent;
+    border: 0;
 }

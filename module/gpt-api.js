@@ -1,7 +1,7 @@
 import * as jsonObject from '../data/data.js';
 import { currentPage, $questionText, currentPurpose, $purposeEtcText } from './page-changer.js';
 import { displayLocalStorage, localData, saveLocalStorage } from './history.js';
-export { InitData };
+export { initData };
 
 //for language, purpose check
 const $languageRadioList = document.querySelectorAll(".select-language input")
@@ -34,7 +34,7 @@ let conventionJs = [];
 
 //function--------------------------------------
 //data각 언어별, 기능별 저장
-function InitData() {
+function initData() {
     dataPython = jsonObject.python;
     dataJava = jsonObject.java;
     dataCpp = jsonObject.cpp;
@@ -81,39 +81,9 @@ const saveQuestion = (question) => {
     }
 };
 
-// display question
-// const printQuestion = async () => {
-//     if (question) {
-//         let li = document.createElement("li");
-//         li.classList.add("question");
-//         questionList.map((el) => {
-//             li.innerText = el.content;
-//         });
-//         console.log(li);
-//         $chatList.appendChild(li);
-//         questionList = [];
-//         question = false;
-//     }
-// };
-
 // display answer
 const printAnswer = (answer) => {
-    if (currentPage === 1) {
-        localData.push({
-            answer: replaceNltoBr(answer),
-            language: `${selectedLang}`,
-            page: `${currentPage}`,
-            purpose: `${currentPurpose}을 위한 함수/변수명`
-        })
-    }
-    else if (currentPage === 2) {
-        localData.push({
-            answer: replaceNltoBr(answer),
-            language: `${selectedLang}`,
-            page: `${currentPage}`,
-            purpose: '코드 컨벤션 추천'
-        })
-    }
+    saveLocalData(answer);
     saveLocalStorage(localData);
     displayLocalStorage();
     $chatList.innerText = "";
@@ -217,4 +187,23 @@ function replaceNltoBr(answer) {
         return answer;
     }
     return answer.replace(/\n/g, "<br>");
+}
+
+function saveLocalData(answer) {
+    if (currentPage === 1) {
+        localData.push({
+            answer: replaceNltoBr(answer),
+            language: `${selectedLang}`,
+            page: `${currentPage}`,
+            purpose: `${currentPurpose} 함수/변수명`
+        })
+    }
+    else if (currentPage === 2) {
+        localData.push({
+            answer: replaceNltoBr(answer),
+            language: `${selectedLang}`,
+            page: `${currentPage}`,
+            purpose: '코드 컨벤션 추천'
+        })
+    }
 }

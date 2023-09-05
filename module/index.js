@@ -1,6 +1,6 @@
 import { initSectionPage } from './page-changer.js';
 import { readLocalStorage, displayLocalStorage } from './history.js'
-import { InitData } from './gpt-api.js'
+import { initData } from './gpt-api.js'
 
 //◀ ▶
 
@@ -8,7 +8,7 @@ import { InitData } from './gpt-api.js'
 //gpt-api.js        => data파일에서 언어별 내용 불러오기
 //page-changer.js   => page-changer에서 그린 html display
 window.onload = function () {
-    InitData();
+    initData();
     initSectionPage();
     readLocalStorage();
     displayLocalStorage();

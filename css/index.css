@@ -6,11 +6,24 @@
     margin-right: 15px;
     transition: text-shadow ease 0.3s, transform ease 0.3s;
 }
-
-.subject-title {
-    padding-top: 10px;
+.scale-down {
+    transform: scale(0) rotate(180deg);
 }
 
+/* title */
+.subject-title {
+    padding: 10px 0px 6px 10px;
+}
+.select-language .title-holder {
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 6px;
+}
+
+.select-purpose .title-holder {
+    margin-bottom: 4px;
+}
+
+/* main */
 .main-container {
     display: flex;
     height: calc(100vh - 80px);
@@ -31,23 +44,8 @@
     max-width: 650px;
 }
 .select-chatview-wrap {
-    height: 95%;
     overflow-y: hidden;
-    /* mask-image: linear-gradient(0deg, transparent 0%, black 10%);
-    -webkit-mask-image: linear-gradient(0deg, transparent 0%, black 10%); */
     padding-bottom: 16px;
-}
-/* title button */
-.main-title {
-    border: 0;
-    margin: 0;
-    margin-top: 12px;
-    display:flex;
-    gap:0px;
-}
-.main-title button {
-    flex-grow: 0.5;
-    border:0;
 }
 
 /* select language */
@@ -60,6 +58,11 @@
     flex-direction: row;
     gap: 5px;
     padding-top: 2px;
+    padding-left: 4px;
+    margin-bottom: 20px;
+}
+.radio-language label:hover {
+    cursor: pointer;
 }
 
 .select-language label {
@@ -73,10 +76,33 @@
     font-size: 20px;
 }
 
+/* title button */
+.main-title {
+    border: 0;
+    margin: 0;
+    margin-top: 6px;
+    display:flex;
+    gap:0px;
+}
+.main-title button {
+    flex-grow: 0.5;
+    border:0;
+    height: 32px;
+    color: white;
+    font-size: 16px;
+}
+.title-variable {
+    border-radius: 16px 0px 0px 0px;
+}
+.title-convention {
+    border-radius: 0px 16px 0px 0px;
+}
+
 /* chat view*/
 .chat-view {
     height: 400px;
     overflow: auto;
+    border-radius: 5px;
 }
 .chat-view::-webkit-scrollbar {
     width: 8px;
@@ -92,7 +118,7 @@
 /* page1: select purpose / page2: chat input */
 .section-page-change {
     display:flex;
-    height: 300px;
+    height: 320px;
 }
 
 /* page1: select purpose */
@@ -106,8 +132,12 @@
     width: 100%;
     padding: 2px;
     border-radius: 10px;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
+.select-purpose label:hover {
+    cursor: pointer;
+}
+
 .select-purpose input[type=radio] {
     display: none;
 }
@@ -151,11 +181,18 @@
     border-radius: 10px;
 }
 
+.radio-select-purpose label {
+    padding: 4px 8px;
+}
+.purpose-text-holder input {
+    padding: 4px 8px;
+}
+
 /* submit button */
 .submit-button-holder {
     display: flex;
     justify-content: center;
-    margin-top: 8px;
+    margin-top: 24px;
     height: 80px;
 }
 .submit-button-holder button {
