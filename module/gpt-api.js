@@ -206,4 +206,7 @@ function saveLocalData(answer) {
             purpose: '코드 컨벤션 추천'
         })
     }
+    if (localData.length > 15) {
+        localData.shift();
+    }
 }
