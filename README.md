@@ -122,22 +122,9 @@ root
 메뉴를 닫을 시 해당 요소만큼 width값이 변하면서 기획했던 의도와 다른 형태의 디자인이 되어버리는 이슈가 있었습니다. 메인 화면의 width값을 고정값이 아니라 %를 사용한 비율값으로 바꾸고, max-width를 설정하여 반응형 디자인의 일부를 구현할 수 있었습니다.
 ```css
 .main-container {
-    display: flex;
     height: calc(100vh - 80px);
-    overflow-x: hidden;
-    overflow-y: auto;
 }
-
-.chat-container {
-    padding: 0px 0px 40px 0px;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-}
-
+/.../
 .chat-wrap {
     width: 50%;
     max-width: 650px;
@@ -190,24 +177,8 @@ $darkModeButton.addEventListener("click", (e) => {
     --dark-color-header: rgb(32, 33, 35);
     --dark-color-main: rgb(70, 70, 85);
     --dark-color-history: rgb(53, 53, 65);
-    --dark-point-color1: #5b7484;
-    --dark-point-color2: #dad8ec;
-    --dark-text-shadow: rgb(235, 235, 235);
 
-    /* light */
-    --light-color-header: #e9cd6a;
-    --light-color-main: rgb(235, 235, 235);
-    --light-color-history: rgb(220, 220, 220);
-    --light-point-color1: #e9cd6a;
-    --light-point-color2: rgb(220, 220, 220);
-    --light-text-shadow: rgb(55, 55, 55);
-
-    /* border */
-    --border-gray: rgb(200, 200, 200);
-    --border-darkgray: rgb(180, 180, 180);
-    --border-black: #151515;
-    --dark-point-border: rgb(230, 230, 230);
-    --light-point-border: #151515;
+    /.../
 
     /* input */
     --dark-input-textbox: rgb(230, 230, 230);
@@ -318,45 +289,22 @@ body.light-mode .subject-title {
         //GPT의 역할 지정
         "role": "system",
         "content": "assistant는 Python 전문가이다."
-    },
-    {
-        "role": "system",
-        "content": "assistant는 함수명, 변수명 추천 프로그램이다."
-    },
-    {
-        "role": "system",
-        "content": "assistant는 Python 이외의 질문에는 답변하지 않는다."
-    },
+    /.../
     {
         //GPT와 대화를 하면서 요청, 규율 명시
         "role": "system",
         "content": "assistant는 코드를 Python 스타일로 보여준다."
     },
     {
-        "role": "user",
-        "content": "앞으로 코드 설명을 하지 마."
-    },
-    {
         //답변 형태 요청
         "role": "user",
         "content": "앞으로 변수명, 함수명 질문은 list로 답해줘."
     },
-    {
-        "role": "user",
-        "content": "앞으로 변수명, 함수명 질문에만 답해줘."
-    },
-    {
-        "role": "user",
-        "content": "앞으로 변수명, 함수명 추천은 5개씩 해줘."
-    },
-    {
-        "role": "user",
-        "content": "곱셈할 때 쓸 함수명/변수명 추천해줘."
-    },
+    /.../
     {
         //GPT의 답변을 저장해 앞으로의 답변 형식과 방향성을 유도
         "role": "assistant",
-        "content": "함수명: \n 1. multiply: 곱셈을 수행하는 함수 \n 2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수 \n 3. calculate_product: 곱셈 결과를 계산하는 함수 \n 4. multiply_numbers: 숫자들을 곱하는 함수 \n 5. calc_multiplication: 곱셈을 계산하는 함수 \n\n 변수: \n 1. num1, num2: 곱셈을 수행할 숫자들을 나타내는 변수 \n 2. result: 곱셈 결과를 저장하는 변수 \n 3. multiplier, multiplicand: 곱셈의 피연산자를 나타내는 변수 \n 5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수"
+        "content": "함수명: \n 1. multiply: 곱셈을 수행하는 함수 \n 2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수 \n 3. calculate_product:/.../타내는 변수 \n 2. result: 곱셈 결과를 저장하는 변수 \n 3. multiplier, multiplicand: 곱셈의 피연산자를 나타내는 변수 \n 5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수"
     },
   ```
   처음에는 감을 잡지 못했지만 실험을 진행하면서 맥락을 알게 되었습니다.
@@ -369,7 +317,7 @@ body.light-mode .subject-title {
 
 ### **7. GPT의 답변 후처리 및 정규화**
 ```js
-"함수명:  1. multiply: 곱셈을 수행하는 함수  2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수  3. calculate_product: 곱셈 결과를 계산하는 함수  4. multiply_numbers: 숫자들을 곱하는 함수  5. calc_multiplication: 곱셈을 계산하는 함수  변수:  1. num1, num2: 곱셈을 수행할 숫자들을 나타내는 변수  2. result: 곱셈 결과를 저장하는 변수 3. multiplier, multiplicand: 곱셈의 피연산자를 나타내는 변수  5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수"
+"함수명:  1. multiply: 곱셈을 수행하는 함수  2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수  3/..../곱셈의 피연산자를 나타내는 변수  5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수"
 ```
 GPT의 답변을 출력하는 기능을 구현하면서 텍스트가 위와 같이 나오는 경우가 있었습니다. ```consol.log(answer)```로 찍어보니 문자열에 이스케이프 개행문자```'\n'```이 포함되어 있고, html에서는 이것이 인식되고 있지 않는 것을 확인했습니다. 처음에는 다음과 같은 함수를 만들었습니다.
 ```js
