@@ -18,7 +18,6 @@ Github: https://github.com/jmkim648/variable-recommander <br>
   - Dark Mode 설정
   - History(검색 이력) 메뉴 슬라이드
   - 아이콘 애니메이션(Dark mode toggle button, history menu slide button)
-  - 반응형 layout
 
 <a href = "#기능-설명" style="color: inherit">[3. 기능 설명]</a>
   - 구현 화면 및 설명
