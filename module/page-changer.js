@@ -7,7 +7,7 @@ let currentPurpose = "데이터베이스 연결";
 
 //li로 만들어서 addelement?
 const textPage1Init = "함수/변수명을 추천합니다.<br>언어와 용도를 선택한 뒤 '추천해줘!' 버튼을 눌러주세요.<br>기타의 경우 '이미지 인식'과 같은 형태로 입력하는 것이 좋습니다.<br>시간이 조금 걸릴 수 있으며, 부정확한 답변이 나올 수 있습니다."
-const textPage2Init = "임의의 코드를 선택한 언어의 컨벤션에 맞게 고쳐줍니다.<br>수정할 코드를 입력한 뒤 '추천해줘!' 버튼을 눌러주세요.<br>시간이 조금 걸릴 수 있으며, 부정확한 답변이 나올 수 있습니다."
+const textPage2Init = "임의의 코드를 선택한 언어의 컨벤션에 맞게 고쳐줍니다.<br>수정할 코드를 입력한 뒤 '추천해줘!' 버튼을 눌러주세요.<br>시간이 조금 걸릴 수 있으며, 부정확한 답변이 나올 수 있습니다.<br>특히 컨벤션의 경우 직접 다시 확인해보는 것을 권장합니다."
 
 
 //페이지 전환용 버튼
@@ -38,18 +38,18 @@ $labelPurpose0.htmlFor = "데이터베이스 연결";
 $labelPurpose0.innerHTML = "데이터베이스 연결";
 const $radioPurpose1 = document.createElement("input");
 $radioPurpose1.type = "radio";
-$radioPurpose1.id = "데이터 저장, 검색";
+$radioPurpose1.id = "데이터 저장";
 $radioPurpose1.name = "purpose";
 const $labelPurpose1 = document.createElement("label");
-$labelPurpose1.htmlFor = "데이터 저장, 검색";
-$labelPurpose1.innerHTML = "데이터 저장, 검색";
+$labelPurpose1.htmlFor = "데이터 저장";
+$labelPurpose1.innerHTML = "데이터 저장";
 const $radioPurpose2 = document.createElement("input");
 $radioPurpose2.type = "radio";
-$radioPurpose2.id = "파일 읽기, 쓰기";
+$radioPurpose2.id = "파일 읽기";
 $radioPurpose2.name = "purpose";
 const $labelPurpose2 = document.createElement("label");
-$labelPurpose2.htmlFor = "파일 읽기, 쓰기";
-$labelPurpose2.innerHTML = "파일 읽기, 쓰기";
+$labelPurpose2.htmlFor = "파일 읽기";
+$labelPurpose2.innerHTML = "파일 읽기";
 const $radioPurpose3 = document.createElement("input");
 $radioPurpose3.type = "radio";
 $radioPurpose3.id = "이미지 처리";

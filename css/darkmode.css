@@ -298,3 +298,8 @@ body.dark-mode .history-p {
 body.light-mode .history-p {
     color: var(--black);
 }
+
+pre {
+    background-color: var(--dark-input-textbox);
+    border: 0;
+}
