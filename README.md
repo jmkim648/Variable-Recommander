@@ -7,10 +7,30 @@ Github: https://github.com/jmkim648/variable-recommander <br>
 
 
 ## 목차
-<메인UI>
+<a href = "#주요-기능" style="color: inherit">[1. 주요 기능]</a>
+  - 함수명/변수명 추천 기능
+  - 코드 입력시 컨벤션에 맞게 수정하는 기능
+  - localStorage 기능을 이용한 검색 이력 관리
+
+<a href = "#부가-기능" style="color: inherit">[2. 부가 기능]</a>
+  - Dark Mode 설정
+  - History(검색 이력) 메뉴 슬라이드
+  - 아이콘 애니메이션(Dark mode toggle button, history menu slide button)
+  - 반응형 layout
+
+<a href = "#기능-설명" style="color: inherit">[3. 기능 설명]</a>
+  - 구현 화면 및 설명
+
+<a href = "#개발-이슈" style="color: inherit">[4. 개발 이슈]</a>
+
+<a href = "#미흡했던-점추후-목표" style="color: inherit">[5. 미흡했던 점/추후 목표]</a>
+
+## 주요 기능
+ 
+ **<메인UI>**
 ![기능설명1](https://github.com/jmkim648/variable-recommander/assets/22714585/f83b6a42-1954-4d01-810e-a3d81447ef0f)
 
-<폴더 구조>
+**<폴더 구조>**
 ```
 root
 │  index.html
@@ -36,22 +56,8 @@ root
         spin.js
 ```
 
-
-1. 주요 기능
-  - 함수명/변수명 추천 기능
-  - 코드 입력시 컨벤션에 맞게 수정하는 기능
-  - localStorage 기능을 이용한 검색 이력 관리
-2. 부가 기능
-  - Dark Mode 설정
-  - History(검색 이력) 메뉴 슬라이드
-  - 아이콘 애니메이션(Dark mode toggle button, history menu slide button)
-  - 반응형 layout
-3. 기능 설명
-  - 구현 화면 및 설명
-4. 개발 이슈
-5. 미흡했던 점/추후 목표
-
-## 주요 기능
+ **<흐름도>**
+ ![flow](https://github.com/jmkim648/variable-recommander/assets/22714585/7452e068-72f9-4a05-9f34-31f77c4caddd)
  1. 함수명, 변수명 추천기능<br>
  선택한 언어와 용도에 맞게 ChatGPT가 함수명, 변수명을 추천해줍니다. 해당 언어에 아직 익숙하지 않아 어떤 형태로 함수와 변수명을 짓는지 헷갈릴 때, 무언가를 위한 함수를 만들고 싶은데 이름을 짓기 막막할 때 사용할 수 있습니다.
 
@@ -101,8 +107,8 @@ root
   - 애니메이션 적용 중 내부 글씨가 살아있으면 줄바뀜이 적용되면서 글이 길쭉해지기 때문에, ▶ 버튼을 누르는 즉시 내부 내용을 삭제시킵니다. ◀버튼을 누르면 애니메이션이 끝난 후 내부 요소를 출력합니다.
 
 ## 개발 이슈
-1. 메뉴 슬라이드 시 화면 비율 -> 반응형 적용
-  어설프게 적용..
+1. 메뉴 슬라이드 구현 시 반응형 디자인 일부 적용
+메뉴를 닫을 시 해당 요소만큼 width값이 변하면서 기획했던 의도와 다른 형태의 디자인이 되어버리는 이슈가 있었습니다. 메인 화면의 width값을 고정값이 아니라 %를 사용한 비율값으로 바꾸고, max-width를 설정하여 반응형 디자인의 일부를 구현할 수 있었습니다.
 
 2. 디자인 색상 관련, 변수 사용
   다크모드 적용, 디자인 시 메인컬러, 서브컬러, 포인트컬러 지정으로 인한 구현 편의성
@@ -117,9 +123,9 @@ root
   학습이 아니라 대화의 흐름을 잡아주는 것
 
 
-## 느낀점/미흡했던 점
+## 미흡했던 점/추후 목표
 
-https://velog.io/@jmkim648/%EC%B2%AB-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%81%9D%EB%82%B4%EA%B3%A0..%EB%8A%90%EB%82%80%EC%A0%90%EB%AF%B8%ED%9D%A1%ED%96%88%EB%8D%98-%EC%A0%90
+[Velog - 첫 프로젝트를 끝내고..느낀점/미흡했던 점](https://velog.io/@jmkim648/%EC%B2%AB-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%81%9D%EB%82%B4%EA%B3%A0..%EB%8A%90%EB%82%80%EC%A0%90%EB%AF%B8%ED%9D%A1%ED%96%88%EB%8D%98-%EC%A0%90)
 
 1. 최소한의 기획과 디자인은 구성을 한 뒤 개발할 것.
   - 특히, 초반 기획은 바뀌는 경우에 대비해 확장성을 고려할 것
