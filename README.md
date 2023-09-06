@@ -7,6 +7,7 @@ Github: https://github.com/jmkim648/variable-recommander <br>
 
 <br>
 <br>
+
 ## 목차
 <a href = "#주요-기능" style="color: inherit">[1. 주요 기능]</a>
   - 함수명/변수명 추천 기능
