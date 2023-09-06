@@ -12,7 +12,6 @@
     --dark-text-shadow: rgb(235, 235, 235);
 
     /* light */
-
     --light-color-header: #e9cd6a;
     --light-color-main: rgb(235, 235, 235);
     --light-color-history: rgb(220, 220, 220);
@@ -24,14 +23,12 @@
     --border-gray: rgb(200, 200, 200);
     --border-darkgray: rgb(180, 180, 180);
     --border-black: #151515;
-
     --dark-point-border: rgb(230, 230, 230);
     --light-point-border: #151515;
 
     /* input */
     --dark-input-textbox: rgb(230, 230, 230);
     --dark-input-textarea: rgb(230, 230, 230);
-    
     --light-input-textbox: rgb(220, 220, 220);
     --light-input-textarea: rgb(220, 220, 220);
 }

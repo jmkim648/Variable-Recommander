@@ -33,10 +33,6 @@ export const python = [
     },
     {
         "role": "user",
-        "content": "앞으로 답변 형태를\n함수명:\n1. loadImage: 이미지를 로드하는 함수\n2. resizeImage: 이미지 크기를 조정하는 함수\n3. applyFilter: 이미지에 필터를 적용하는 함수\n4. saveImage: 이미지를 저장하는 함수\n5. getPixelColor: 특정 좌표의 픽셀 색상을 가져오는 함수\n\n변수명:\n1. imageFile: 이미지 파일을 나타내는 변수\n2. resizedImage: 크기가 조정된 이미지를 나타내는 변수\n3. filteredImage: 필터가 적용된 이미지를 나타내는 변수\n4. outputImage: 저장된 이미지를 나타내는 변수\n5. pixelColor: 픽셀의 색상을 나타내는 변수\n처럼 일관적으로 해줘."
-    },
-    {
-        "role": "user",
         "content": "곱셈할 때 쓸 함수명/변수명 추천해줘."
     },
     {
@@ -85,10 +81,6 @@ export const java = [
     {
         "role": "user",
         "content": "앞으로 변수명, 함수명 추천은 5개씩 해줘."
-    },
-    {
-        "role": "user",
-        "content": "앞으로 답변 형태를\n함수명:\n1. loadImage: 이미지를 로드하는 함수\n2. resizeImage: 이미지 크기를 조정하는 함수\n3. applyFilter: 이미지에 필터를 적용하는 함수\n4. saveImage: 이미지를 저장하는 함수\n5. getPixelColor: 특정 좌표의 픽셀 색상을 가져오는 함수\n\n변수명:\n1. imageFile: 이미지 파일을 나타내는 변수\n2. resizedImage: 크기가 조정된 이미지를 나타내는 변수\n3. filteredImage: 필터가 적용된 이미지를 나타내는 변수\n4. outputImage: 저장된 이미지를 나타내는 변수\n5. pixelColor: 픽셀의 색상을 나타내는 변수\n처럼 일관적으로 해줘."
     },
     {
         "role": "user",
@@ -151,10 +143,6 @@ export const cpp = [
     },
     {
         "role": "user",
-        "content": "앞으로 답변 형태를\n함수명:\n1. loadImage: 이미지를 로드하는 함수\n2. resizeImage: 이미지 크기를 조정하는 함수\n3. applyFilter: 이미지에 필터를 적용하는 함수\n4. saveImage: 이미지를 저장하는 함수\n5. getPixelColor: 특정 좌표의 픽셀 색상을 가져오는 함수\n\n변수명:\n1. imageFile: 이미지 파일을 나타내는 변수\n2. resizedImage: 크기가 조정된 이미지를 나타내는 변수\n3. filteredImage: 필터가 적용된 이미지를 나타내는 변수\n4. outputImage: 저장된 이미지를 나타내는 변수\n5. pixelColor: 픽셀의 색상을 나타내는 변수\n처럼 일관적으로 해줘."
-    },
-    {
-        "role": "user",
         "content": "이미지 처리를 위한 함수명/변수명 추천해줘."
     },
     {
@@ -211,10 +199,6 @@ export const javascript = [
     {
         "role": "user",
         "content": "앞으로 변수명, 함수명 추천은 5개씩 해줘."
-    },
-    {
-        "role": "user",
-        "content": "앞으로 답변 형태를\n함수명:\n1. loadImage: 이미지를 로드하는 함수\n2. resizeImage: 이미지 크기를 조정하는 함수\n3. applyFilter: 이미지에 필터를 적용하는 함수\n4. saveImage: 이미지를 저장하는 함수\n5. getPixelColor: 특정 좌표의 픽셀 색상을 가져오는 함수\n\n변수명:\n1. imageFile: 이미지 파일을 나타내는 변수\n2. resizedImage: 크기가 조정된 이미지를 나타내는 변수\n3. filteredImage: 필터가 적용된 이미지를 나타내는 변수\n4. outputImage: 저장된 이미지를 나타내는 변수\n5. pixelColor: 픽셀의 색상을 나타내는 변수\n처럼 일관적으로 해줘."
     },
     {
         "role": "user",
