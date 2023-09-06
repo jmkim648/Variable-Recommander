@@ -145,7 +145,39 @@ root
 ```
 메뉴 슬라이드 시 최대 width값을 넘지 않는 선에서 메인 화면이 가로로 늘어납니다. 다만 처음부터 기획했던 부분이 아닌점, 제대로 이해를 하지 못한 채 썼다는점 때문에 제대로 된 반응형 사이트는 완성하지 못했습니다.
 
-### **2. 디자인 색상 및 class 통일, 변수 사용**
+### **2. class 추가/제거와 transition을 이용한 애니메이션 구현**
+처음에는 단순히 애니메이션을 줄 아이콘에 ```transition: all ease 0.5```를 주고 toggle 시 이벤트를 통해 transform을 적용하였습니다. 하지만 이 경우 페이지를 처음 그릴 때 아이콘으로 썼던 이모지 ☀️에 적용된 scale, color 등의 효과까지 서서히 적용되는 문제가 있었습니다.
+
+이벤트로 transform을 적용하였을 시, ☀️에서 🌙로 변하는 이벤트를 따로 설정하고 🌙에서 ☀️로 변할 때도 별개의 이벤트를 설정해야하는 문제가 있었습니다.
+```css
+.dark-mode-button {
+    scale: 1.5;
+    border: 0;
+    color: transparent;
+    margin-right: 15px;
+    transition: text-shadow ease 0.3s, transform ease 0.3s;
+}
+
+.scale-down {
+    transform: scale(0) rotate(180deg);
+}
+```
+```js
+$darkModeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    let currentClass = $body.className;
+    $body.className = currentClass === "dark-mode" ? "light-mode" : "dark-mode";
+    //button animation
+    $darkModeButton.classList.add('scale-down');
+    setTimeout(()=>{
+        $darkModeButton.classList.remove('scale-down');
+        $darkModeButton.innerHTML = $darkModeButton.innerHTML === "🌙" ? "☀️" : "🌙";
+    }, 200);
+});
+```
+위의 문제는 class속성을 설정 후 해당 class를 add, remove 하는 형태로 해결하였습니다. 코드가 간결해져 효율성과 가독성이 올랐으며, 겸사겸사 setTimeout을 이용한 딜레이까지 배워서 사용할 수 있었습니다.
+
+### **3. 디자인 색상 및 class 통일, 변수 사용**
 
   처음 기능 구현 전 Layout을 짜 놓은 뒤, 기능 구현과 함께 추가되는 오브젝트들마다 새로 css를 궁리하고 적용하는 것은 시간과 심력소모가 극심한 일이었습니다. 다크모드르 구현할 때 색상을 한번 더 고민하고 지정해야한다는 것을 깨닫고 변수를 통해 색상 지정하는 방법을 찾았습니다.
   ```css
@@ -194,7 +226,7 @@ body.light-mode .subject-title {
   ```
 또한 모든 요소에 적용하지는 못했지만, 공통된 용도를 갖는 요소에 동일한 클래스명을 add하여 한번에 스타일 지정을 할 수 있어 효율성을 챙길 수 있었습니다.
 
-### **3. 외부에서 데이터 관리, 데이터셋 init 관련**
+### **4. 외부에서 데이터 관리, 데이터셋 init 관련**
   추후 재사용성, 확장성을 위해 프롬프트 엔지니어링의 data로 쓸 문자열을 따로 파일로 관리할 필요성을 느꼈습니다. 따라서 
   ```js
   //./data.js
@@ -260,7 +292,7 @@ body.light-mode .subject-title {
   ```
 
 
-### **4. 파일 로드와 DOM 파싱 순서**
+### **5. 파일 로드와 DOM 파싱 순서**
 
   자바스크립트에 DOM을 활용한 함수를 만든 뒤 맞이했던 에러입니다.
   ```
@@ -278,7 +310,7 @@ body.light-mode .subject-title {
    우선 에러가 날 때 확인 후 defer를 붙여 해결하였습니다.
    하지만 이후 defer를 없애도 다시 에러가 나지 않는 등 정확한 용도와 사용법 파악에 미숙함을 느껴 더 찾아볼 필요를 느꼈습니다.
 
-### **5. 프롬프트 엔지니어링**
+### **6. 프롬프트 엔지니어링**
   
   처음에는 프롬프트 엔지니어링을 '원하는 대화를 할 수 있도록 학습하는 것'으로 이해했지만 며칠 공부하면서 학습이 아니라 '대화를 하면서 흐름을 잡아주는 것'이라는 것을 알았습니다.
   ```js
@@ -335,7 +367,7 @@ body.light-mode .subject-title {
 
   또한 role: user로 같은 유형의 질문을 반복하면 GPT의 대화와 답변의 scope가 그것에 집중되는 경향을 보이는 것을 확인했습니다. 
 
-### **6. GPT의 답변 후처리 및 정규화**
+### **7. GPT의 답변 후처리 및 정규화**
 ```js
 "함수명:  1. multiply: 곱셈을 수행하는 함수  2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수  3. calculate_product: 곱셈 결과를 계산하는 함수  4. multiply_numbers: 숫자들을 곱하는 함수  5. calc_multiplication: 곱셈을 계산하는 함수  변수:  1. num1, num2: 곱셈을 수행할 숫자들을 나타내는 변수  2. result: 곱셈 결과를 저장하는 변수 3. multiplier, multiplicand: 곱셈의 피연산자를 나타내는 변수  5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수"
 ```
