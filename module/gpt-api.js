@@ -248,6 +248,6 @@ function spinnerStop() {
         document.body.removeChild(tagId);
     }
     catch (exception) {
-        // console.error("catch : " + "not find spinnerLay1000");
+        // console.error("catch : " + "not find spinnerLay1000"); 
     }
 };
