@@ -32,7 +32,10 @@ GitHub: https://github.com/jmkim648/variable-recommander <br>
  ### **<메인UI>**
 ![기능설명1](https://github.com/jmkim648/variable-recommander/assets/22714585/f83b6a42-1954-4d01-810e-a3d81447ef0f)
 
-**<폴더 구조>**
+ ### **<마인드맵>**
+ ![마인드맵](https://github.com/STP-TP/CMI.DB-Collector/assets/22714585/8ccfdae6-1606-403a-92dd-e3a4cfd96e3c)
+
+ ### **<폴더 구조>**
 ```
 root
 │  index.html
@@ -60,6 +63,7 @@ root
 
  ### **<흐름도>**
  ![flow](https://github.com/jmkim648/variable-recommander/assets/22714585/7452e068-72f9-4a05-9f34-31f77c4caddd)
+
  ### **1. 함수명, 변수명 추천기능**<br>
  선택한 언어와 용도에 맞게 ChatGPT가 함수명, 변수명을 추천해줍니다. 해당 언어에 아직 익숙하지 않아 어떤 형태로 함수와 변수명을 짓는지 헷갈릴 때, 무언가를 위한 함수를 만들고 싶은데 이름을 짓기 막막할 때 사용할 수 있습니다.
 
