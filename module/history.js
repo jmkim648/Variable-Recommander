@@ -83,9 +83,6 @@ function addHistoryP(li, i) {
         else {
             $selectTitle2.click();
             $chatListInit.innerHTML = "";
-            // $chatListInit.innerHTML = localData[i]['answer'];
-            // $purposeEtcText.value = "";
-            // $questionText.value = "";
             let li = document.createElement("li");
             let pre = document.createElement("pre");
             let code = document.createElement("code");
