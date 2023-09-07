@@ -30,7 +30,6 @@ function addFliped(object) {
     object.classList.add("closed");
     setTimeout(() => {
         $flipMenuButton.classList.remove("moved");
-        $flipMenuButton.style.transition = "all ease 0.5s";
     }, 400);
 };
 
