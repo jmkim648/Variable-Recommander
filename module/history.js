@@ -48,7 +48,6 @@ function saveLocalStorage(data) {
     localStorage.setItem('history', tempData);
 };
 
-
 function displayLocalStorage() {
     $historyUl.innerText = "";
     if (localData) {
@@ -62,6 +61,7 @@ function displayLocalStorage() {
     }
 }
 
+//코드 최적화
 function addHistoryP(li, i) {
     let divP = document.createElement("div");
     divP.className = "history-p-holder";
@@ -96,11 +96,9 @@ function addHistoryP(li, i) {
             $questionText.value = "";
         }
     });
-
     divP.appendChild(p);
     li.appendChild(divP);
 }
-
 
 function addDeleteButton(li) {
     let divIcon = document.createElement("div");

@@ -196,6 +196,8 @@ $form.addEventListener("submit", (e) => {
     question = false;
 });
 
+
+//spinner 기능
 function spinnerStart() {
     let createLayDiv = document.createElement("div");
     createLayDiv.setAttribute("id", "spinnerLay1000");
@@ -237,7 +239,7 @@ function spinnerStart() {
 function spinnerStop() {
     try {
         let tagId = document.getElementById("spinnerLay1000");
-        document.body.removeChild(tagId); //body에서 삭제 실시 
+        document.body.removeChild(tagId);
     }
     catch (exception) {
         // console.error("catch : " + "not find spinnerLay1000");

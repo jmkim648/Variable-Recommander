@@ -1,3 +1,5 @@
+// code from https://spin.js.org/
+
 let __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (let s, i = 1, n = arguments.length; i < n; i++) {
