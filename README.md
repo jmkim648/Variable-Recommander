@@ -341,7 +341,7 @@ add-pre-tag(li, answer);
 $chatList.appendChild(li);
 };
 ```
-답변이 이런식으로 오면 개행뿐 아니라 tab까지 고려해야 하기 때문에 <br>태그로는 해결할 수 없었습니다. 뒤늦게 html의 li에 text요소로 답변을 넣을 것이 아니라 pre태그와 code태그를 사용할 수 있다는 것을 발견했습니다.
+답변이 이런식으로 오면 개행뿐 아니라 tab까지 고려해야 하기 때문에 `<br>`태그로는 해결할 수 없었습니다. 뒤늦게 html의 li에 text요소로 답변을 넣을 것이 아니라 pre태그와 code태그를 사용할 수 있다는 것을 발견했습니다.
 ```js
 function addPreTag(li, answer) {
     if (currentPage === 1) {
