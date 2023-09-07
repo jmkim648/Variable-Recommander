@@ -7,7 +7,7 @@ const $body = document.querySelector("body");
 const $darkModeButton = document.querySelector(".dark-mode-button");
 
 //자동실행함수
-//gpt-api.js        => data파일에서 언어별 내용 불러오기 : initData
+//gpt-api.js        => data파일에서 언어별 dataset 불러오기 : initData
 //page-changer.js   => page-changer에서 그린 html display : initSectionPage
 //history.js        => localStorage 읽은 뒤 history 메뉴에 display : readLocalStorage, displayLocalStorage
 window.onload = function () {

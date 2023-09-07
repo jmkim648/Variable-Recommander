@@ -71,27 +71,26 @@ $input.addEventListener("input", (e) => {
 
 //purpose에 따라 question 생성
 const makeQuestion = (currentPurpose) => {
-    return question = `${currentPurpose}을 위한 함수명/변수명 추천해줘.`
+    if (currentPurpose) {
+        return question = `${currentPurpose}을 위한 함수명/변수명 추천해줘.`
+    }
 };
 
 // 사용자의 질문을 객체로 만들어서 data에 push
 const saveQuestion = (question) => {
     if (currentPage === 1) {
-        question = makeQuestion(currentPurpose);
-        if (question) {
-            currentData.push({
-                role: "user",
-                content: question,
-            });
-        }
+        currentData.push({
+            role: "user",
+            content: question,
+        });
+
     }
     else if (currentPage === 2) {
-        if (question) {
-            currentData.push({
-                role: "user",
-                content: question,
-            });
-        }
+        currentData.push({
+            role: "user",
+            content: question,
+        });
+
     }
 };
 
@@ -176,11 +175,15 @@ function saveHistoryData(answer) {
 // submit
 $form.addEventListener("submit", (e) => {
     e.preventDefault();
-    spinnerStart()
     if (currentPage === 1) {
         selectData();
-        saveQuestion(question);
-        apiPost();
+        question = makeQuestion(currentPurpose);
+        if (question) {
+            saveQuestion(question);
+            spinnerStart();
+            apiPost();
+        }
+
         if ($purposeEtcText.value) {
             $purposeEtcText.value = "";
         }
@@ -189,8 +192,11 @@ $form.addEventListener("submit", (e) => {
         if ($input.value) {
             $input.value = null;
             selectData();
-            saveQuestion(question);
-            apiPost();
+            if (question) {
+                saveQuestion(question);
+                spinnerStart();
+                apiPost();
+            }
         }
     }
     question = false;
@@ -229,7 +235,7 @@ function spinnerStart() {
         speed: 1,
         trail: 74,
         fps: 20,
-        zIndex: 2e9 
+        zIndex: 2e9
     };
 
     let target = document.getElementById("spinnerContainer1000");

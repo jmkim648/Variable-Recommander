@@ -109,7 +109,6 @@ $selectPurpose.appendChild($purposeTextHolder);
 
 //page 2---------------------------
 //코드 입력 시 언어에 따른 컨벤션에 맞춰 수정 및 추천
-//input textarea는 export 필요? form일듯
 const $chatInput = document.createElement("div");
 $chatInput.className = "chat-input";
 const $chatInputTitleHolder = document.createElement("div");
@@ -151,6 +150,7 @@ $radioSelectPurpose.addEventListener("change", (e) => {
         currentPurpose = $radioPurpose5.id;
     }
     else if ($radioPurpose6.checked) {
+        currentPurpose = "";
         $purposeEtcText.disabled = false;
         $purposeEtcText.focus();
     }
@@ -179,9 +179,7 @@ $selectTitle1.addEventListener("click", () => {
     $selectTitle1.classList.remove("title-selected");
     $selectTitle2.classList.remove("title-selected");
     $selectTitle1.classList.add("title-selected");
-    
-    //page 2의 input Init
-    $questionText.value = "";
+
     //display Init
     $chatListInit.innerHTML = textPage1Init;
 })
@@ -194,11 +192,6 @@ $selectTitle2.addEventListener("click", () => {
     $selectTitle2.classList.add("title-selected");
     $questionText.focus();
     
-    // page1의 radio옵션 Init
-    $radioPurpose0.click();
-    $purposeEtcText.disabled = true;
-    $purposeEtcText.value = "";
-    currentPurpose = $radioPurpose0.id;
     // display init
     $chatListInit.innerHTML = textPage2Init;
 })
