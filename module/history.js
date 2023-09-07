@@ -17,7 +17,7 @@ let localData = [];
 
 //menu bar animation
 const $flipMenuButton = document.createElement("button");
-$flipMenuButton.className = "flip-menu-button";
+$flipMenuButton.className = "flip-menu-button moved";
 $flipMenuButton.innerText = "▶";
 $historyContainer.insertBefore($flipMenuButton, $historyContainer.firstChild);
 
@@ -28,10 +28,15 @@ $flipMenuButton.addEventListener("click", (e) => {
 function addFliped(object) {
     object.classList.add("flipped");
     object.classList.add("closed");
+    setTimeout(() => {
+        $flipMenuButton.classList.remove("moved");
+        $flipMenuButton.style.transition = "all ease 0.5s";
+    }, 400);
 };
 
 function removeFlipped(object) {
     object.classList.remove("flipped");
+    $flipMenuButton.classList.add("moved");
     setTimeout(() => {
         object.classList.remove("closed");
     }, 300);

@@ -272,10 +272,16 @@ body.dark-mode .flip-menu-button {
     background-color: var(--dark-color-main);
     text-shadow: 0 0 0 var(--dark-text-shadow);
 }
-
 body.light-mode .flip-menu-button {
     background-color: var(--light-color-main);
     text-shadow: 0 0 0 var(--light-text-shadow);
+}
+
+body.dark-mode .flip-menu-button.moved{
+    background-color: var(--dark-color-history);
+}
+body.light-mode .flip-menu-button.moved{
+    background-color: var(--light-color-history);
 }
 
 /* list 내부 x아이콘 */

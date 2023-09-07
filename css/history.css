@@ -21,6 +21,10 @@
 .flipped .flip-menu-button {
     transform: rotate(180deg);
 }
+.flip-menu-button.moved{
+    right: -8px;
+    top: 4px;
+}
 /* 메뉴가 다 펴지고 나서 내용물이 보이게 하기 위한 class */
 .closed p, .closed ul, .closed .title-holder {
     display: none;
