@@ -2,7 +2,7 @@
 
 이스트소프트에서 주관하는 백엔드 개발자 부트캠프 '오르미'에서 배우며 만든 프로젝트입니다. 평소에도 개발을 할 때 변수명, 함수명을 지을 때 고민을 많이 하는 편이기 때문에 자연스럽게 주제를 '변수명 추천기'로 정하게 되었습니다.<br><br> ChatGPT의 API 기능을 활용하여 웹페이지를 구현하는 프로젝트입니다. 백엔드를 아직 배우지 않았고, 구현 과제가 아니었기 때문에 HTML, CSS, JavaScript 선에서 재량껏 구현하게 되었습니다. Bootstrap, Tailwind 등의 사용도 고려되었지만 아직 프론트엔드의 각종 기능과 언어가 낯설고 익숙해져야하기 때문에 백지상태에서 제작을 시도하였습니다. <br><br>프로젝트 기간은 총 9일이었으며, 1인개발로 이루어졌습니다.<br>
 
-Github: https://github.com/jmkim648/variable-recommander <br>
+GitHub: https://github.com/jmkim648/variable-recommander <br>
 배포: https://jmkim648.github.io/variable-recommander/
 
 <br>
