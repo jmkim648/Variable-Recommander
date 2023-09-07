@@ -8,7 +8,7 @@ GitHub: https://github.com/jmkim648/variable-recommander <br>
 <br>
 <br>
 
-## 목차
+## <목차>
 [1. 주요 기능](#주요-기능)
   - 함수명/변수명 추천 기능
   - 코드 입력시 컨벤션에 맞게 수정하는 기능
@@ -27,7 +27,7 @@ GitHub: https://github.com/jmkim648/variable-recommander <br>
 [5. 미흡했던 점/추후 목표](#미흡했던-점추후-목표)
 <br>
 <br>
-## 주요 기능
+## <주요 기능>
  
  ### **<메인UI>**
 ![기능설명1](https://github.com/jmkim648/variable-recommander/assets/22714585/f83b6a42-1954-4d01-810e-a3d81447ef0f)
@@ -76,7 +76,7 @@ root
 <br>
 <br>
 
-## 부가 기능
+## <부가 기능>
  ### **1. 다크모드, 라이트모드 및 애니메이션**<br>
  Dark Mode 기능을 구현했습니다. 헤더 우측의 아이콘을 누를 경우 dark mode, light mode로 토글 전환됩니다. light mode일 때는 아이콘이 검은색 해 모양이고, dark mode일 때는 하얀색 달 모양으로 전환됩니다. 전환될 때마다 버튼에 간단한 애니메이션이 적용됩니다.
 
@@ -85,7 +85,7 @@ root
 <br>
 <br>
 
-## 기능 설명
+## <기능 설명>
 ### **1. 함수명, 변수명 추천**
 ![1번기능시연](https://github.com/jmkim648/variable-recommander/assets/22714585/90ac2b85-ba5a-4e02-8a7a-b3d1ce877167)
   - 상단 언어선택 메뉴에서 언어를 선택합니다.
@@ -119,7 +119,7 @@ root
 <br>
 <br>
 
-## 개발 이슈
+## <개발 이슈>
 ### **1. 메뉴 슬라이드 구현 시 반응형 디자인 일부 적용**
 
 메뉴를 닫을 시 해당 요소만큼 width값이 변하면서 기획했던 의도와 다른 형태의 디자인이 되어버리는 이슈가 있었습니다. 메인 화면의 width값을 고정값이 아니라 %를 사용한 비율값으로 바꾸고, max-width를 설정하여 반응형 디자인의 일부를 구현할 수 있었습니다.
@@ -366,7 +366,7 @@ function addPreTag(li, answer) {
 <br>
 <br>
 
-## 미흡했던 점/추후 목표
+## <미흡했던 점/추후 목표>
 
 [Velog - 첫 프로젝트를 끝내고..느낀점/미흡했던 점](https://velog.io/@jmkim648/%EC%B2%AB-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EB%81%9D%EB%82%B4%EA%B3%A0..%EB%8A%90%EB%82%80%EC%A0%90%EB%AF%B8%ED%9D%A1%ED%96%88%EB%8D%98-%EC%A0%90)
 
