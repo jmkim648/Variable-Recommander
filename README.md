@@ -169,7 +169,7 @@ $darkModeButton.addEventListener("click", (e) => {
 
 ### **3. 디자인 색상 및 class 통일, 변수 사용**
 
-  처음 기능 구현 전 Layout을 짜 놓은 뒤, 기능 구현과 함께 추가되는 오브젝트들마다 새로 css를 궁리하고 적용하는 것은 시간과 심력소모가 극심한 일이었습니다. 다크모드르 구현할 때 색상을 한번 더 고민하고 지정해야한다는 것을 깨닫고 변수를 통해 색상 지정하는 방법을 찾았습니다.
+  처음 기능 구현 전 Layout을 짜 놓은 뒤, 기능 구현과 함께 추가되는 오브젝트들마다 새로 CSS를 궁리하고 적용하는 것은 시간과 심력소모가 극심한 일이었습니다. 다크모드르 구현할 때 색상을 한번 더 고민하고 지정해야한다는 것을 깨닫고 변수를 통해 색상 지정하는 방법을 찾았습니다.
   ```css
   /* variable */
 :root {
@@ -322,7 +322,7 @@ body.light-mode .subject-title {
 ```js
 "함수명:  1. multiply: 곱셈을 수행하는 함수  2. product: 두 개의 숫자를 곱한 결과를 반환하는 함수  3/..../곱셈의 피연산자를 나타내는 변수  5. operand1, operand2: 곱셈에 사용되는 피연산자를 나타내는 변수"
 ```
-GPT의 답변을 출력하는 기능을 구현하면서 텍스트가 위와 같이 나오는 경우가 있었습니다. `consol.log(answer)`로 찍어보니 문자열에 이스케이프 개행문자 `'\n'`이 포함되어 있고, html에서는 이것이 인식되고 있지 않는 것을 확인했습니다. 처음에는 다음과 같은 함수를 만들었습니다.
+GPT의 답변을 출력하는 기능을 구현하면서 텍스트가 위와 같이 나오는 경우가 있었습니다. `consol.log(answer)`로 찍어보니 문자열에 이스케이프 개행문자 `'\n'`이 포함되어 있고, HTML에서는 이것이 인식되고 있지 않는 것을 확인했습니다. 처음에는 다음과 같은 함수를 만들었습니다.
 ```js
 function replaceNltoBr(answer) {
     if (typeof answer !== 'string') {
@@ -331,7 +331,7 @@ function replaceNltoBr(answer) {
     return answer.replace(/\n/g, "<br>");
 }
 ```
-`'\n'`을 <br>로 바꿔 html에서도 개행이 인식되었습니다.
+`'\n'`을 <br>로 바꿔 HTML에서도 개행이 인식되었습니다.
 하지만 두번째 주요 기능 '코드 입력 후 변환 출력'에서는 해당 함수를 적용할 수 없었습니다.
 ```js
 const printAnswer = (answer) => {
@@ -345,7 +345,7 @@ add-pre-tag(li, answer);
 $chatList.appendChild(li);
 };
 ```
-답변이 이런식으로 오면 개행뿐 아니라 tab까지 고려해야 하기 때문에 `<br>`태그로는 해결할 수 없었습니다. 뒤늦게 html의 li에 text요소로 답변을 넣을 것이 아니라 pre태그와 code태그를 사용할 수 있다는 것을 발견했습니다.
+답변이 이런식으로 오면 개행뿐 아니라 tab까지 고려해야 하기 때문에 `<br>`태그로는 해결할 수 없었습니다. 뒤늦게 HTML의 li에 text요소로 답변을 넣을 것이 아니라 pre태그와 code태그를 사용할 수 있다는 것을 발견했습니다.
 ```js
 function addPreTag(li, answer) {
     if (currentPage === 1) {
