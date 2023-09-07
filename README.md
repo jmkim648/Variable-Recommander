@@ -9,22 +9,22 @@ GitHub: https://github.com/jmkim648/variable-recommander <br>
 <br>
 
 ## 목차
-<a href = "#주요-기능" style="color: inherit">[1. 주요 기능]</a>
+[1. 주요 기능](#주요-기능)
   - 함수명/변수명 추천 기능
   - 코드 입력시 컨벤션에 맞게 수정하는 기능
   - localStorage 기능을 이용한 검색 이력 관리
 
-<a href = "#부가-기능" style="color: inherit">[2. 부가 기능]</a>
+[2. 부가 기능](#부가-기능)
   - Dark Mode 설정
   - History(검색 이력) 메뉴 슬라이드
   - 아이콘 애니메이션(Dark mode toggle button, history menu slide button)
 
-<a href = "#기능-설명" style="color: inherit">[3. 기능 설명]</a>
+[3. 기능 설명](#기능-설명)
   - 구현 화면 및 설명
 
-<a href = "#개발-이슈" style="color: inherit">[4. 개발 이슈]</a>
+[4. 개발 이슈](#개발-이슈)
 
-<a href = "#미흡했던-점추후-목표" style="color: inherit">[5. 미흡했던 점/추후 목표]</a>
+[5. 미흡했던 점/추후 목표](#미흡했던-점추후-목표)
 <br>
 <br>
 ## 주요 기능
@@ -274,7 +274,7 @@ body.light-mode .subject-title {
   ```
   렌더링 엔진이 js파일을 로드하는 script 태그를 만나면 DOM 파싱을 중단하고, js파일을 로드한 후 해당 자바스크립트 파일을 실행한다고 합니다. 이 때 해당 js 파일에서 **생성되다 만** DOM에 접근하게 되면 에러가 발생합니다.
 
-   해결책은 1. script태그를 본문 아래에 위치시킨다. 2. async, defer 어트리뷰트를 지정한다. 였습니다.
+   해결책은 ```1. script태그를 본문 아래에 위치시킨다. 2. async, defer 어트리뷰트를 지정한다.``` 였습니다.
    ```html
     <script defer src="./module/index.js" type="module"></script>
     <script defer src="./module/page-changer.js" type="module"></script>
